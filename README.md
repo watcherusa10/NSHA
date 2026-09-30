@@ -1,0 +1,157 @@
+# NSHA landing page
+
+Static landing page for the **National Subsistence and Homesteading Association (NSHA)**, a nonprofit that promotes subsistence and homesteading lifestyles, connects members (called **Subsisters**) in a decentralized support network, and works to open pathways to land and funding.
+
+The page is written to read like a polished, federal-grade public resource while stating clearly that **NSHA is a nonprofit and not a U.S. government agency**. That disclosure appears in the slim banner at the top of the page, in the footer, and in the legal line. Keep all three.
+
+## What is in this repository
+
+```
+index.html            The whole page (one file, all sections)
+assets/css/styles.css All styles, plain CSS, no build step
+assets/js/main.js     Mobile menu toggle and footer year (progressive enhancement only)
+README.md             This file
+.gitignore
+```
+
+No frameworks, no bundler, no npm install. The page works with JavaScript disabled (the navigation renders inline), with web fonts blocked (system fallback stack), and in browsers without `backdrop-filter` (solid fallbacks).
+
+## Preview locally
+
+Either open `index.html` directly in a browser, or serve the folder with any static server, for example:
+
+```
+python3 -m http.server 8000        # then visit http://localhost:8000
+npx serve .                        # if you have Node installed
+```
+
+## Deploy
+
+The site is plain static files, so any static host works.
+
+**GitHub Pages**
+
+1. Push this repository to GitHub.
+2. In the repository, open *Settings > Pages*.
+3. Under *Build and deployment*, choose *Deploy from a branch*, pick your default branch and the `/ (root)` folder, and save.
+4. The site appears at `https://<your-account>.github.io/<repository>/` within a few minutes.
+
+**Netlify**
+
+1. Create a new site and connect this repository (or drag the folder onto the Netlify dashboard).
+2. Leave the build command empty and set the publish directory to `/` (the repository root).
+3. Deploy. Netlify gives you a `*.netlify.app` URL; add a custom domain under *Domain settings* when ready.
+
+Because the page uses relative paths (`assets/css/styles.css`), it works from a sub-path as well as a root domain.
+
+## Design tokens
+
+All tokens live at the top of `assets/css/styles.css` as CSS custom properties.
+
+### Color
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `--c-white` | `#FFFFFF` | Page background |
+| `--c-surface` | `#F6F8F4` | Off-white surfaces, footer, callouts |
+| `--c-band` | `#EDF3EA` | Pale green section bands, opaque mobile menu |
+| `--c-forest-900` | `#173324` | Headings, CTA band, logo circle |
+| `--c-forest-800` | `#1F4A32` | Nav links, outline buttons |
+| `--c-forest-700` | `#2B5E40` | Text links, eyebrow labels |
+| `--c-moss-600` | `#3D6B4A` | Primary buttons, icons, focus ring |
+| `--c-moss-700` | `#325A3D` | Primary hover |
+| `--c-olive-500` | `#5C7A4A` | Illustration mid-tone only (not for body text) |
+| `--c-sage-400` | `#8FA98C` | Rules, dividers, topographic pattern |
+| `--c-sage-300` | `#A9BFA6` | Illustration light hills, soft rules |
+| `--c-sage-100` | `#DCE8D9` | Icon circles, disclosure banner, chips |
+| `--c-ink-900` | `#1F2A24` | Body text |
+| `--c-ink-700` | `#4B5750` | Muted text, captions |
+| `--c-wheat-500` | `#C99A3E` | The single warm accent: eyebrow dash, sun, status dot |
+| `--c-wheat-100` | `#F5EBD2` | Date chips, status pill, recommended badge |
+
+Text colors meet WCAG AA against the surfaces they sit on. `--c-olive-500` is decorative only.
+
+### Type
+
+| Token | Value |
+| --- | --- |
+| `--font-sans` | Public Sans, then the system sans stack |
+| `--font-serif` | Source Serif 4, then Iowan Old Style / Palatino / Georgia |
+| `--fs-h1` | `clamp(2.25rem, 1.55rem + 2.6vw, 3.5rem)` |
+| `--fs-h2` | `clamp(1.75rem, 1.4rem + 1.2vw, 2.375rem)` |
+| `--fs-h3` / `--fs-h4` | `1.375rem` / `1.125rem` |
+| `--fs-lede` / `--fs-body` / `--fs-small` | `1.25rem` / `1.0625rem` / `0.875rem` |
+
+Headings (h1, h2) and prices use the serif; everything else is sans. Spacing follows an 8px scale (`--s-1` through `--s-10`). Google Fonts are loaded with one `<link>` in `<head>`; if that request fails, the fallback stack keeps the layout intact.
+
+### Glass
+
+Three surfaces use `backdrop-filter`: the sticky header, the hero "Start here" card, and the four "Why it matters" cards. Each has a solid-color fallback in an `@supports not (backdrop-filter…)` block beside it. The mobile navigation panel is deliberately opaque (`#EDF3EA`); the CSS comment above it explains why and should stay.
+
+## Image slots
+
+Every place a photograph belongs is a `<figure class="photo-slot">` with a unique `id`, a `data-photo-brief` attribute describing the photo to source, an inline SVG placeholder illustration, and a visible `<figcaption>`. There are twelve.
+
+| Slot id | Section | Caption | Photo brief |
+| --- | --- | --- | --- |
+| `photo-hands-seedling` | What is subsistence | Every Subsister starts with a single planting. | Close-up of weathered adult hands setting a seedling into dark soil, soft morning light, shallow depth of field, no faces visible. Mood: quiet, hopeful, unhurried. |
+| `photo-balcony-garden` | What is homesteading | Homesteading at apartment scale. | An ordinary city balcony with containers of herbs, tomatoes, and greens, apartment buildings softened in the background. Eye-level mid-shot in overcast daylight; it should look achievable, not styled. |
+| `photo-raised-beds` | Who is a Subsister | A suburban yard converted to raised beds. | Wide shot of a typical suburban backyard where lawn has given way to several timber raised beds in full production, the house visible at the frame's edge. Mood: tidy, productive, ordinary. |
+| `photo-root-cellar` | Why it matters now | A root cellar keeps a harvest through winter without electricity. | Interior of a small root cellar or cold room: wooden bins of potatoes, onions, and winter squash, a few jars on a shelf, stone or earth walls, one soft light source from a doorway. Mood: cool, quiet, provident. |
+| `photo-pantry-shelves` | The Subsister pathway | A season of harvest, preserved for winter. | Rows of home-canned jars and stored winter squash on plain wooden shelves in a cool room, side lighting, warm but restrained tones. Focus on order and abundance rather than rustic styling. |
+| `photo-hens-coop` | The Subsister pathway | Laying hens are often a first animal. | Three or four hens foraging near a simple, well-built backyard coop in late-afternoon light. Eye-level, calm, uncluttered. |
+| `photo-library` | Learn to become a Subsister | Learning begins with a notebook and a packet of seed. | Overhead of an open field notebook, seed packets, and a hand trowel on a plain wooden table, warm daylight, orderly and uncluttered. Mood: studious, practical. |
+| `photo-events` | Upcoming events | Subsisters gather at a regional chapter workshop. | A small group of adults of mixed ages standing or seated around a wooden table in a barn or community hall, one person demonstrating canning or seed sorting while others watch closely. Natural side light, muted greens and neutrals, documentary feel, no posed smiles at the camera. |
+| `photo-community-table` | Membership | Subsisters share labor, tools, and knowledge. | A candid shot of adults of different ages and backgrounds at a long outdoor table or inside a barn, sorting produce or seeds together, natural light. Mood: working side by side, not posed. |
+| `photo-network` | The network | Neighbors trade seed, tools, and labor at a node exchange. | Two or three people passing seed packets, hand tools, or crates of produce to one another across a truck bed or folding table outdoors, with a rural or edge-of-town backdrop. Overcast or golden-hour light, calm and cooperative mood, shot at eye level. |
+| `photo-land` | Land and the model operation | Apprentices work raised beds at the planned model operation. | A wide shot of a working homestead in early morning, with orderly raised beds or rows in the foreground, a modest barn or outbuilding in the middle distance, and two or three people bent to the work. Deep greens, soft sky, sense of scale and order. |
+| `photo-funding` | Funding and grants | A land and financing clinic walks through application paperwork. | A close, over-the-shoulder view of two people at a table reviewing printed forms and a laptop, one pointing to a line on the page. Clean, well-lit interior, focused and unhurried, no visible logos or agency names on the documents. |
+
+All slots are 4:3 except `photo-community-table`, which is 16:9 (`photo-slot--wide`). Source photos at least 1600px wide for 4:3 slots and 1600 x 900 for the wide slot; the frame crops with `object-fit: cover`, so keep the subject away from the edges.
+
+### Replacing an illustration with a real photograph
+
+1. Save the photo in the repository, for example `assets/img/hands-seedling.jpg`. Export a web-sized JPEG (1600px wide is plenty) and, if you can, a WebP version too.
+2. In `index.html`, find the figure by its id, for example `<figure class="photo-slot" id="photo-hands-seedling" …>`.
+3. Inside its `<div class="photo-slot__frame">`, delete the entire `<svg …>…</svg>` block and put an `<img>` in its place:
+
+   ```html
+   <div class="photo-slot__frame">
+     <img src="assets/img/hands-seedling.jpg"
+          alt="Two hands press a young tomato seedling into dark garden soil."
+          width="1600" height="1200" loading="lazy">
+   </div>
+   ```
+
+4. Write the `alt` text as a plain sentence describing what is actually in the photo, not the mood and not the caption. If the photo is purely decorative and the caption already says everything, use `alt=""`. Never leave `alt` out.
+5. Keep the `<figcaption>`. Edit it if the new photo needs a different caption.
+6. Once a real photo is in, you may delete the `data-photo-brief` attribute or leave it as a record of what was asked for.
+7. Only the first four slots on the page should skip `loading="lazy"`; everything further down can lazy-load.
+
+The frame's CSS already styles `img` the same way it styles the SVG (`width: 100%; height: 100%; object-fit: cover`), so nothing else needs to change.
+
+## Placeholders to fill in
+
+Every value that is not yet known is shown as a visible placeholder rather than an invented figure. Search `index.html` for `TBD` and `[` to find them all.
+
+- [ ] **Event dates**: four `<time>Date TBD</time>` elements in the Events section. Replace the text and add a machine-readable `datetime`, for example `<time datetime="2027-05-15">May 15, 2027</time>`.
+- [ ] **Event locations**: `[City, State] · [Venue]` in three event cards.
+- [ ] **Event registration links**: each event card's link has `title="[Registration link TBD]"` and points to `#events`. Point them at real registration pages and remove the title attribute.
+- [ ] **Events calendar link**: `title="[Calendar link TBD]"`.
+- [ ] **Membership dues**: `Dues TBD` and `Sliding scale · details to come` in all three tiers.
+- [ ] **Membership forms**: the three tier buttons carry `title="[Membership form TBD]"`.
+- [ ] **Library guide links**: every "Start here" link in the six learning tracks carries `title="[Link to guide TBD]"` and points to `#library`.
+- [ ] **Node directory, starter guide, and request-a-call links** in the Network section.
+- [ ] **Passthrough grants, program guides, and giving page links** in the Funding section.
+- [ ] **Land status**: the status pill reads "Property search and fundraising in progress. Location and timeline TBD."
+- [ ] **Contact email**: `[email TBD]` appears in the footer contact block and in the accessibility statement.
+- [ ] **Mailing address**: `[Mailing address TBD]`.
+- [ ] **Nonprofit status**: `[pending / 501(c)(3) determination TBD]`. Once determined, state the status plainly and add the EIN if you choose to publish it.
+- [ ] **Privacy policy**: `[Full privacy policy TBD]`; link to the real policy when it exists.
+- [ ] **Copyright year**: filled by JavaScript; the no-JS fallback text is `[Year]` and can be hard-coded once you prefer.
+
+Two things should not change: the "NSHA is not a U.S. government agency" disclosure (top banner, footer, legal line), and the funding note stating that NSHA does not administer federal programs and does not guarantee eligibility for any grant, loan, or program.
+
+## Accessibility and quality checks
+
+The page has one `h1`, semantic landmarks (`header`, `nav`, `main`, `footer`), a skip link, visible focus styles, `aria-label`s on icon-only controls, `prefers-reduced-motion` support, and no horizontal scrolling at 390px, 834px, or 1440px. It passes html-validate and axe-core's WCAG 2 A/AA rule set with zero violations. If you edit the page, re-run an accessibility checker such as the axe browser extension before publishing.
