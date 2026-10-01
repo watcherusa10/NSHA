@@ -49,12 +49,12 @@
 
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="brand" href="#top" aria-label="NSHA home">
+      <a class="brand" href="#top">
         <svg class="brand__mark" aria-hidden="true" focusable="false"><use href="#logo-mark"/></svg>
         <span class="brand__text">
           <span class="brand__abbr">NSHA</span>
           <span class="brand__full"><span>National Subsistence and</span> <span>Homesteading Association</span></span>
-        </span>
+        </span><span class="visually-hidden"> (home)</span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
         <svg class="icon icon--menu" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>
@@ -100,27 +100,34 @@
           <p class="small">Self-education is free. Membership is optional.</p>
         </aside>
       </div>
-      <svg class="hero__art" viewBox="0 0 1600 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false" data-photo-brief="Wide landscape of a working homestead at golden hour, house and barn mid-distance, rolling hills, no people, calm. 16:10, full-bleed; must tolerate being cropped at the sides and overlapped by text and the Start here card.">
+      <figure class="hero__art" id="photo-hero" data-photo-brief="Wide landscape of a working homestead at golden hour, house and barn mid-distance, rolling hills, no people, calm. 16:10, full-bleed; must tolerate being cropped at the sides and overlapped by text and the Start here card.">
+      <svg viewBox="0 0 1600 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
         <!-- Sun tucked on the horizon, half hidden by the far hill -->
         <circle class="hero__sun" cx="1330" cy="182" r="30" fill="#C99A3E" opacity=".9"/>
         <!-- Far hill -->
         <path d="M0 208C300 158 600 196 900 176S1300 204 1600 164V400H0Z" fill="#DCE8D9"/>
         <!-- Mid hill -->
         <path d="M0 268C250 224 550 252 850 236S1300 206 1600 250V400H0Z" fill="#A9BFA6"/>
-        <!-- Two round trees, left -->
-        <rect x="446" y="222" width="8" height="46" fill="#1F4A32"/>
-        <circle cx="450" cy="200" r="34" fill="#1F4A32"/>
-        <rect x="508" y="234" width="6" height="36" fill="#2B5E40"/>
-        <circle cx="511" cy="218" r="24" fill="#2B5E40"/>
+        <!-- Two round trees, left. The translates keep the trees and the
+             buildings inside the centred 710-unit window the slice crop shows
+             at 390px, so the scene reads whole on a phone. -->
+        <g transform="translate(90 0)">
+          <rect x="446" y="222" width="8" height="46" fill="#1F4A32"/>
+          <circle cx="450" cy="200" r="34" fill="#1F4A32"/>
+          <rect x="508" y="234" width="6" height="36" fill="#2B5E40"/>
+          <circle cx="511" cy="218" r="24" fill="#2B5E40"/>
+        </g>
         <!-- House and barn on the mid hill, right of center -->
-        <path d="M968 258v-44l34-26 34 26v44z" fill="#1F4A32"/>
-        <rect x="994" y="232" width="16" height="12" rx="1.5" fill="#DCE8D9"/>
-        <path d="M1050 260v-66l52-34 52 34v66z" fill="#173324"/>
-        <rect x="1090" y="204" width="24" height="14" rx="2" fill="#DCE8D9"/>
-        <rect x="1086" y="228" width="32" height="32" fill="#DCE8D9" opacity=".9"/>
-        <!-- Fence line between house and barn -->
-        <g stroke="#1F4A32" stroke-width="3" stroke-linecap="round">
-          <path d="M1120 250h60"/><path d="M1130 242v14M1150 240v14M1170 240v14"/>
+        <g transform="translate(-110 0)">
+          <path d="M968 258v-44l34-26 34 26v44z" fill="#1F4A32"/>
+          <rect x="994" y="232" width="16" height="12" rx="1.5" fill="#DCE8D9"/>
+          <path d="M1050 260v-66l52-34 52 34v66z" fill="#173324"/>
+          <rect x="1090" y="204" width="24" height="14" rx="2" fill="#DCE8D9"/>
+          <rect x="1086" y="228" width="32" height="32" fill="#DCE8D9" opacity=".9"/>
+          <!-- Fence line between house and barn -->
+          <g stroke="#1F4A32" stroke-width="3" stroke-linecap="round">
+            <path d="M1120 250h60"/><path d="M1130 242v14M1150 240v14M1170 240v14"/>
+          </g>
         </g>
         <!-- Front field with furrows -->
         <path d="M0 322C400 282 900 304 1600 286V400H0Z" fill="#5C7A4A"/>
@@ -130,6 +137,8 @@
           <path d="M60 388C420 356 900 372 1540 356"/>
         </g>
       </svg>
+      <figcaption class="visually-hidden">Illustration of a homestead landscape: rolling hills, two trees, a house, and a barn above a furrowed field.</figcaption>
+      </figure>
     </section>
 
     <!-- ============================== MISSION ============================== -->
@@ -140,7 +149,7 @@
             <div class="section-head section-head--flush">
               <p class="eyebrow">About NSHA</p>
               <h2 id="mission-h">What NSHA does</h2>
-              <p class="lede">The National Subsistence and Homesteading Association exists to make subsistence and homesteading lifestyles understandable, attainable, and durable for ordinary Americans. We advocate for the people who grow, raise, preserve, and build for themselves, and we work to remove the barriers of land, knowledge, and money that keep others from joining them.</p>
+              <p class="lede">The National Subsistence and Homesteading Association exists to make subsistence and homesteading lifestyles understandable, attainable, and durable for ordinary Americans. NSHA advocates for the people who grow, raise, preserve, and build for themselves, and works to remove the barriers of land, knowledge, and money that keep others from joining them.</p>
             </div>
           </div>
           <div class="split__media">
@@ -193,7 +202,7 @@
           <div class="split__copy prose">
             <h3>What is subsistence?</h3>
             <p>Subsistence means producing a meaningful share of what your household needs to live: food, water, heat, and everyday goods. It does not mean producing all of it. A family that grows half its vegetables, keeps a few laying hens, and heats with wood it cut itself is practicing subsistence. So is a household that puts up a season of produce from a shared garden plot.</p>
-            <p>Subsistence is not the same as living "off the grid," and it is not a rejection of modern life. Most people who practice subsistence hold jobs, use electricity, and shop at stores. It is also different from farming as a business, where the goal is to sell a crop at a profit. The goal of subsistence is to meet your own needs first, reduce what you must buy, and build a margin of safety for your household.</p>
+            <p>Subsistence is not the same as living “off the grid,” and it is not a rejection of modern life. Most people who practice subsistence hold jobs, use electricity, and shop at stores. It is also different from farming as a business, where the goal is to sell a crop at a profit. The goal of subsistence is to meet your own needs first, reduce what you must buy, and build a margin of safety for your household.</p>
             <div class="def">
               <span class="def__term">Subsistence</span>
               <span class="def__text">Producing a meaningful share of what your household needs, rather than buying all of it.</span>
@@ -304,7 +313,7 @@
         <div class="split split--wide split--top">
           <div class="split__copy">
             <div class="section-head section-head--tight">
-              <p class="eyebrow">Who we are</p>
+              <p class="eyebrow">Who Subsisters are</p>
               <h2 id="subsister-h">Who is a Subsister?</h2>
             </div>
             <div class="prose">
@@ -396,7 +405,7 @@
             <article class="card card--glass">
               <div class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-people"/></svg></div>
               <h3>Skills lost between generations</h3>
-              <p>Within living memory, most households knew how to garden, can, butcher, mend, and build. Much of that knowledge was never written down, and it disappears when the people who hold it are gone.</p>
+              <p>Within living memory, many households knew how to garden, can, butcher, mend, and build. Much of that knowledge was never written down, and it disappears when the people who hold it are gone.</p>
             </article>
           </div>
           <figure class="photo-slot why-layout__figure" id="photo-root-cellar" data-photo-brief="Interior of a small root cellar or cold room: wooden bins of potatoes, onions, and winter squash, a few jars on a shelf, stone or earth walls, one soft light source from a doorway. Mood: cool, quiet, provident.">
@@ -452,7 +461,7 @@
             <p>Understand the basics before you spend money on tools or land.</p>
             <ul class="step__skills">
               <li>Reading a seed packet and a soil test</li>
-              <li>Finding your growing zone and average frost dates</li>
+              <li>Finding your growing zone (the climate band printed on seed packets) and average frost dates</li>
               <li>Keeping a simple garden journal</li>
             </ul>
           </li>
@@ -556,7 +565,11 @@
                 <path d="M448 308l132-92 132 92z" fill="#173324"/>
                 <rect x="550" y="360" width="52" height="90" rx="4" fill="#DCE8D9"/>
                 <circle cx="650" cy="345" r="14" fill="#DCE8D9"/>
-                <path d="M556 446L430 512" stroke="#173324" stroke-width="10" stroke-linecap="round"/>
+                <!-- Ramp: a filled plank with cleats, not a bare line -->
+                <path d="M553 444l6 12-126 62-6-12z" fill="#A9BFA6"/>
+                <g stroke="#1F4A32" stroke-width="3" stroke-linecap="round" opacity=".55">
+                  <path d="M522 461l5 11M490 477l5 11M459 493l5 11"/>
+                </g>
                 <use href="#hen" x="160" y="500" fill="#173324"/>
                 <use href="#hen" transform="translate(300 528) scale(-1 1)" fill="#2B5E40"/>
                 <use href="#hen" x="380" y="548" fill="#173324"/>
@@ -621,7 +634,7 @@
             <ul class="start-list start-list--compact">
               <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Soil health and composting</a></li>
               <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Choosing crops suited to your climate</a></li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Extending the season with cold frames and row cover</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Extending the season with cold frames and row cover (simple covers that shelter plants from frost)</a></li>
             </ul>
           </article>
           <article class="card track">
@@ -830,11 +843,11 @@
             </ul>
             <a class="btn btn--outline" href="#membership-note" title="[Membership form TBD]">Join as an Individual Subsister</a>
           </article>
-          <article class="card tier tier--recommended">
-            <span class="chip badge--recommended tier__label">Recommended</span>
+          <article class="card tier">
+            <span class="chip chip--fact tier__label">For families</span>
             <h3>Household</h3>
             <p class="tier__price">Dues TBD <span class="small">Sliding scale · details to come</span></p>
-            <p class="tier__who">Two or more people living and working in the same place, so that everyone in the household is a Subsister under one membership.</p>
+            <p class="tier__who">Two or more people who live under one roof or work one homestead together, so that everyone in the household is a Subsister under one membership.</p>
             <ul class="tier__list">
               <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Everything in the Individual tier, extended to every adult in the household.</span></li>
               <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Priority consideration for apprenticeship placements and open days at the model operation (planned).</span></li>
@@ -852,14 +865,14 @@
               <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Recognition as an NSHA-affiliated node or supporting organization.</span></li>
               <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Access to node operating guidance, templates, and (planned) insurance and legal resources.</span></li>
               <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Ability to host NSHA workshops and clinics with association support.</span></li>
-              <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>A seat in the annual chapter council.</span></li>
+              <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>A seat in the annual chapter council, where organizational supporters and chapter representatives meet to set regional priorities (planned).</span></li>
             </ul>
             <a class="btn btn--outline" href="#membership-note" title="[Membership form TBD]">Support as an Organization</a>
           </article>
         </div>
         <p class="small placeholder-note" id="membership-note"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><span><strong>Placeholder.</strong> Membership forms will open when dues are finalized. Until then, the buttons above lead to this note.</span></p>
 
-        <div class="split split--wide subsection">
+        <div class="split split--wide split--stretch subsection">
           <div class="split__copy">
             <div class="callout">
               <h3 class="h4">Membership is not required to learn.</h3>
@@ -907,7 +920,7 @@
               <h2 id="network-h">A decentralized subsistence support network</h2>
             </div>
             <div class="prose">
-              <p>A decentralized network has no headquarters that everything depends on. It is made of many small, local groups, which we call nodes, that operate on their own and cooperate with one another. Each node knows its own soil, climate, laws, and neighbors. The nodes of one region together form a chapter, which organizes regional events and carries the region's voice within the association. Skills pass directly from one Subsister to the next. Seed, tools, and labor move between households without waiting on permission from anyone far away.</p>
+              <p>A decentralized network has no headquarters that everything depends on. It is made of many small, local groups, called nodes, that operate on their own and cooperate with one another. Each node knows its own soil, climate, laws, and neighbors. The nodes of one region together form a chapter, which organizes regional events and carries the region's voice within the association. Skills pass directly from one Subsister to the next. Seed, tools, and labor move between households without waiting on permission from anyone far away.</p>
               <p>Because no single node holds everything, no single failure can stop the whole. If one group loses a meeting place or a leader moves away, the others carry on and help it rebuild. NSHA's role is coordination, not control. NSHA will set shared standards, keep the directory of nodes, and connect nodes to funding and one another, and it plans to provide insurance and legal guidance as the association matures. The work itself belongs to the nodes.</p>
             </div>
           </div>
@@ -989,7 +1002,7 @@
               </li>
               <li>
                 <h4>Start one if none exists.</h4>
-                <p>Gather three or more interested households, read the node starter guide, and register the node with NSHA.</p>
+                <p>Gather a few interested households, read the node starter guide, and register the node with NSHA.</p>
                 <a class="btn btn--link" href="#network-note" title="[Starter guide link TBD]">Read the node starter guide <span class="nowrap"><span class="pending">(link to come)</span>&nbsp;<svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a>
               </li>
               <li>
@@ -1074,9 +1087,13 @@
                     <rect x="70" y="478" width="660" height="6" rx="3"/>
                     <rect x="50" y="534" width="700" height="6" rx="3"/>
                   </g>
-                  <g fill="#173324">
-                    <circle cx="250" cy="446" r="16"/><path d="M226 462c0-14 12-22 26-22s24 8 24 22v20h-50z"/>
-                    <circle cx="590" cy="498" r="18"/><path d="M562 516c0-16 14-24 28-24s28 8 28 24v22h-56z"/>
+                  <!-- Two apprentices, drawn as in the community-table slot: dark
+                       head, lighter torso, and a visible neck gap so each reads as a person. -->
+                  <g>
+                    <rect x="226" y="441" width="48" height="46" rx="20" fill="#A9BFA6"/>
+                    <circle cx="250" cy="421" r="15" fill="#173324"/>
+                    <rect x="563" y="494" width="54" height="50" rx="22" fill="#A9BFA6"/>
+                    <circle cx="590" cy="471" r="17" fill="#173324"/>
                   </g>
                 </svg>
               </div>
@@ -1216,12 +1233,12 @@
     <div class="container">
       <div class="site-footer__grid">
         <div>
-          <a class="brand" href="#top" aria-label="NSHA home">
+          <a class="brand" href="#top">
             <svg class="brand__mark" aria-hidden="true" focusable="false"><use href="#logo-mark"/></svg>
             <span class="brand__text">
               <span class="brand__abbr">NSHA</span>
               <span class="brand__full"><span>National Subsistence and</span> <span>Homesteading Association</span></span>
-            </span>
+            </span><span class="visually-hidden"> (home)</span>
           </a>
           <p class="site-footer__tagline">Advocacy, education, land, and funding for Subsisters across America.</p>
           <p class="site-footer__disclosure"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-shield"/></svg><span>An official resource of the National Subsistence and Homesteading Association, a nonprofit organization. <strong>NSHA is not a U.S. government agency.</strong></span></p>

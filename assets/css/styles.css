@@ -54,8 +54,10 @@
   --accent: var(--c-wheat-500);
 
   /* Radii */
+  --r-xs: 4px;   /* text links, focus rings on radius-less elements */
   --r-sm: 6px;
   --r-md: 12px;
+  --r-btn: 10px;
   --r-lg: 20px;
   --r-pill: 999px;
 
@@ -197,8 +199,10 @@ svg { display: inline-block; vertical-align: middle; }
 :focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
-  border-radius: 4px;
 }
+/* The ring follows each component's own radius. Only elements with no radius
+   of their own (text links, the brand lockup) get a small one here. */
+a:not([class]):focus-visible, .start-list a:focus-visible, .brand:focus-visible { border-radius: var(--r-xs); }
 .btn:focus-visible, .nav__link:focus-visible { outline-offset: 2px; }
 /* The skip link's target is the whole <main> region; the scroll is the feedback. */
 main:focus, main:focus-visible { outline: none; }
@@ -275,6 +279,11 @@ main:focus, main:focus-visible { outline: none; }
 }
 .split + .split { margin-top: clamp(3rem, 6vw, 5rem); }
 .split--lead { margin-bottom: var(--s-7); }
+/* Callout beside a figure: stretch the callout to the figure's height and
+   centre its text, so the two boxes share top and bottom edges. */
+.split--stretch { align-items: stretch; }
+.split--stretch > .split__copy { display: grid; }
+.split--stretch .callout { align-content: center; }
 @media (min-width: 640px) and (max-width: 899.98px) {
   .split__media { max-width: 620px; margin-inline: auto; }
 }
@@ -460,8 +469,11 @@ main:focus, main:focus-visible { outline: none; }
     min-height: calc(100vh - 100%);
     min-height: calc(100dvh - 100%);
     overflow-y: auto;
+    overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }
+  /* Hold the page still beneath the scrim while the panel is open. */
+  html[data-nav-open] body { overflow: hidden; }
 }
 /* Scrim behind the open mobile panel, toggled by main.js via html[data-nav-open].
    It sits BELOW the header (and so below the panel, which lives inside it) and
@@ -555,7 +567,7 @@ html[data-nav-open] body::after {
   gap: var(--s-2);
   min-height: 44px;
   padding: 0 var(--s-5);
-  border-radius: 10px;
+  border-radius: var(--r-btn);
   border: 1.5px solid transparent;
   font: 600 .9375rem / 1 var(--font-sans);
   letter-spacing: .01em;
@@ -582,7 +594,7 @@ html[data-nav-open] body::after {
   min-height: 0;
   padding: var(--s-3) 0;
   border: 0;
-  border-radius: 4px;
+  border-radius: var(--r-xs);
   background: none;
   color: var(--link);
   line-height: 1.4;
@@ -646,7 +658,6 @@ html[data-nav-open] body::after {
   display: flex;
   align-items: center;
   gap: var(--s-3);
-  padding-block: 0;
   border-top: 1px solid rgba(23, 51, 36, .08);
 }
 .start-list li:first-child { border-top: 0; }
@@ -672,7 +683,12 @@ html[data-nav-open] body::after {
   height: clamp(160px, 28vw, 340px);
   z-index: -1;
   display: block;
+  margin: 0;
 }
+.hero__art svg { display: block; width: 100%; height: 100%; }
+/* On phones 28vw is a sliver; a fixed 220px keeps the barn and trees legible
+   (about 55px tall) and lets the glass card sit on the hills. */
+@media (max-width: 599.98px) { .hero__art { height: 220px; } }
 /* Below the desktop layout the slice crop pushes the sun to the right edge,
    where it reads as a stray half-disc; the horizon reads fine without it. */
 @media (max-width: 899.98px) { .hero__sun { display: none; } }
@@ -690,7 +706,6 @@ html[data-nav-open] body::after {
   gap: var(--s-3);
   transition: box-shadow .2s ease-out, transform .2s ease-out;
 }
-.band .card { background: #fff; }
 .card__icon {
   width: 44px; height: 44px;
   border-radius: 50%;
@@ -941,7 +956,7 @@ html[data-nav-open] body::after {
   text-transform: uppercase;
   color: var(--c-forest-700);
 }
-.start-list--compact li { padding-block: 0; font-size: var(--fs-small); }
+.start-list--compact li { font-size: var(--fs-small); }
 .start-list--compact a { font-size: .9375rem; min-height: 44px; padding-block: var(--s-1); }
 .start-list--compact .icon { width: 16px; height: 16px; }
 
@@ -974,22 +989,9 @@ html[data-nav-open] body::after {
 /* ---------- 15. Membership tiers --------------------------------------- */
 .tiers { align-items: stretch; }
 .tier { padding-top: var(--s-7); }
-.tier--recommended { border: 2px solid var(--c-moss-600); box-shadow: var(--shadow-2); }
-@media (min-width: 900px) { .tier--recommended { transform: translateY(-8px); } }
 .tier__label {
   position: absolute;
   top: -12px; left: var(--s-6);
-}
-.badge--recommended {
-  background: var(--c-wheat-100);
-  color: var(--c-wheat-700);
-  border: 1px solid rgba(138, 90, 25, .25);
-}
-.badge--recommended::before {
-  content: "";
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--c-wheat-500);
 }
 .tier h3 { margin-top: 0; }
 .tier__price {
@@ -1025,7 +1027,13 @@ html[data-nav-open] body::after {
   border-radius: var(--r-md);
 }
 .callout--role .icon { color: var(--c-moss-600); flex: none; margin-top: 4px; }
-.callout--role p { max-width: 70ch; }
+/* The card hugs its text (about 70ch of copy plus icon and padding) instead
+   of stretching across the container with a blank right third. */
+.callout--role { max-width: 80ch; }
+@media (max-width: 479.98px) {
+  .callout--role { flex-direction: column; gap: var(--s-3); }
+  .callout--role .icon { margin-top: 0; }
+}
 .callout--role strong { color: var(--c-forest-900); }
 .callout--status {
   gap: var(--s-3);

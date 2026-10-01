@@ -66,7 +66,7 @@ All tokens live at the top of `assets/css/styles.css` as CSS custom properties.
 | `--c-ink-900` | `#1F2A24` | Body text |
 | `--c-ink-700` | `#4B5750` | Muted text, captions |
 | `--c-wheat-500` | `#C99A3E` | The single warm accent: eyebrow dash, sun, status dot |
-| `--c-wheat-100` | `#F5EBD2` | Date chips, status pill, recommended badge |
+| `--c-wheat-100` | `#F5EBD2` | Date chips, status pill |
 
 Text colors meet WCAG AA against the surfaces they sit on. The illustrations also use an olive mid-tone, `#5C7A4A`, written directly in the SVGs; it is decorative only and is not a token.
 
@@ -89,11 +89,11 @@ Three surfaces use `backdrop-filter`: the sticky header (on its `::before` layer
 
 ## Image slots
 
-Every place a photograph belongs is a `<figure class="photo-slot">` with a unique `id`, a `data-photo-brief` attribute describing the photo to source, an inline SVG placeholder illustration, and a visible `<figcaption>`. There are twelve, plus the hero landscape (`svg.hero__art`), which carries its own `data-photo-brief` and is listed first below. The hero has no caption: it is a decorative full-bleed background that text and the Start here card sit on.
+Every place a photograph belongs is a `<figure>` with a unique `id`, a `data-photo-brief` attribute describing the photo to source, an inline SVG placeholder illustration, and a `<figcaption>`. There are thirteen: twelve `photo-slot` figures with visible captions, plus the hero landscape (`figure.hero__art#photo-hero`), listed first below. The hero is a decorative full-bleed background that text and the Start here card sit on, so its caption is visually hidden (read by screen readers only) and its SVG is `aria-hidden`.
 
 | Slot id | Section | Caption | Photo brief |
 | --- | --- | --- | --- |
-| `hero__art` (class) | Hero | none (decorative background) | Wide landscape of a working homestead at golden hour, house and barn mid-distance, rolling hills, no people, calm. 16:10, full-bleed; must tolerate being cropped at the sides and overlapped by text and the Start here card. |
+| `photo-hero` | Hero | Illustration of a homestead landscape: rolling hills, two trees, a house, and a barn above a furrowed field. (visually hidden) | Wide landscape of a working homestead at golden hour, house and barn mid-distance, rolling hills, no people, calm. 16:10, full-bleed; must tolerate being cropped at the sides and overlapped by text and the Start here card. |
 | `photo-hands-seedling` | What is subsistence | Every Subsister starts with a single planting. | Close-up of weathered adult hands setting a seedling into dark soil, soft morning light, shallow depth of field, no faces visible. Mood: quiet, hopeful, unhurried. (The placeholder illustration shows the seedling in a soil mound with a hand trowel; the photo should include the hands.) |
 | `photo-balcony-garden` | What is homesteading | Homesteading at apartment scale. | An ordinary city balcony with containers of herbs, tomatoes, and greens, apartment buildings softened in the background. Eye-level mid-shot in overcast daylight; it should look achievable, not styled. |
 | `photo-raised-beds` | Who is a Subsister | A suburban yard converted to raised beds. | Wide shot of a typical suburban backyard where lawn has given way to several timber raised beds in full production, the house visible at the frame's edge. Mood: tidy, productive, ordinary. |
@@ -107,7 +107,7 @@ Every place a photograph belongs is a `<figure class="photo-slot">` with a uniqu
 | `photo-land` | Land and the model operation | Apprentices work raised beds at the planned model operation. | A wide shot of a working homestead in early morning, with orderly raised beds or rows in the foreground, a modest barn or outbuilding in the middle distance, and two or three people bent to the work. Deep greens, soft sky, sense of scale and order. |
 | `photo-funding` | Funding and grants | A land and financing clinic walks through application paperwork. | A close, over-the-shoulder view of two people at a table reviewing printed forms and a laptop, one pointing to a line on the page. Clean, well-lit interior, focused and unhurried, no visible logos or agency names on the documents. |
 
-All figure slots are 4:3 except `photo-community-table`, which is 16:9 (`photo-slot--wide`). The hero landscape is positioned with `preserveAspectRatio="xMidYMax slice"`; a replacement photo should use `object-fit: cover; object-position: center bottom` and be at least 2400px wide. Source photos at least 1600px wide for 4:3 slots and 1600 x 900 for the wide slot; the frame crops with `object-fit: cover`, so keep the subject away from the edges.
+All figure slots are 4:3 except `photo-community-table`, which is 16:9 (`photo-slot--wide`). The hero landscape is positioned with `preserveAspectRatio="xMidYMax slice"`; a replacement photo should replace the `<svg>` inside `figure.hero__art` with an `<img>` using `object-fit: cover; object-position: center bottom`, be at least 2400px wide, and keep the figure's `aria-hidden` SVG convention (give the `<img>` `alt=""` and keep the hidden caption, or give it a real `alt` and drop the caption). On phones the figure is a fixed 220px tall, so the subject should sit in the centre of the frame. Source photos at least 1600px wide for 4:3 slots and 1600 x 900 for the wide slot; the frame crops with `object-fit: cover`, so keep the subject away from the edges.
 
 ### Replacing an illustration with a real photograph
 
