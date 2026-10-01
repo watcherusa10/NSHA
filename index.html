@@ -100,9 +100,9 @@
           <p class="small">Self-education is free. Membership is optional.</p>
         </aside>
       </div>
-      <svg class="hero__art" viewBox="0 0 1600 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+      <svg class="hero__art" viewBox="0 0 1600 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false" data-photo-brief="Wide landscape of a working homestead at golden hour, house and barn mid-distance, rolling hills, no people, calm. 16:10, full-bleed; must tolerate being cropped at the sides and overlapped by text and the Start here card.">
         <!-- Sun tucked on the horizon, half hidden by the far hill -->
-        <circle cx="1330" cy="182" r="30" fill="#C99A3E" opacity=".9"/>
+        <circle class="hero__sun" cx="1330" cy="182" r="30" fill="#C99A3E" opacity=".9"/>
         <!-- Far hill -->
         <path d="M0 208C300 158 600 196 900 176S1300 204 1600 164V400H0Z" fill="#DCE8D9"/>
         <!-- Mid hill -->
@@ -135,11 +135,21 @@
     <!-- ============================== MISSION ============================== -->
     <section class="section" id="mission" aria-labelledby="mission-h">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">About NSHA</p>
-          <h2 id="mission-h">What NSHA does</h2>
-          <p class="lede">The National Subsistence and Homesteading Association exists to make subsistence and homesteading lifestyles understandable, attainable, and durable for ordinary Americans. We advocate for the people who grow, raise, preserve, and build for themselves, and we work to remove the barriers of land, knowledge, and money that keep others from joining them.</p>
-          <p class="status"><span class="status__dot" aria-hidden="true"></span><span><strong>Status:</strong> NSHA is newly formed. The programs described on this page are in development, and anything marked planned is not yet operating.</span></p>
+        <div class="split split--wide split--top split--lead">
+          <div class="split__copy">
+            <div class="section-head section-head--flush">
+              <p class="eyebrow">About NSHA</p>
+              <h2 id="mission-h">What NSHA does</h2>
+              <p class="lede">The National Subsistence and Homesteading Association exists to make subsistence and homesteading lifestyles understandable, attainable, and durable for ordinary Americans. We advocate for the people who grow, raise, preserve, and build for themselves, and we work to remove the barriers of land, knowledge, and money that keep others from joining them.</p>
+            </div>
+          </div>
+          <div class="split__media">
+            <aside class="callout callout--status" aria-labelledby="mission-status-h">
+              <h3 class="h4" id="mission-status-h"><span class="status__dot" aria-hidden="true"></span>Status: newly formed</h3>
+              <p>NSHA is newly formed. The programs described on this page are in development, and anything marked “Planned” is not yet operating. This page sets out what the association intends to do and how to take part while it is built.</p>
+              <p class="small">Progress on land and the model operation is reported in <a href="#land">its own section</a>.</p>
+            </aside>
+          </div>
         </div>
         <div class="grid grid--4 mission-grid">
           <article class="card">
@@ -433,7 +443,7 @@
         <div class="section-head">
           <p class="eyebrow">The Subsister pathway</p>
           <h2 id="pathway-h">From curious to established, in five steps</h2>
-          <p class="lede">A ladder, not a leap. Each step builds on the one before, and every step can be taken where you already live.</p>
+          <p class="lede">Each step builds on the one before, and every step can be taken where you already live.</p>
         </div>
         <ol class="stepper">
           <li class="step">
@@ -472,16 +482,16 @@
             <p>Add capacity and connect with people who can help.</p>
             <ul class="step__skills">
               <li>Keeping a small flock of laying hens</li>
-              <li>Joining or forming a local Subsister chapter</li>
+              <li>Joining or forming a local Subsister node</li>
               <li>Trading surplus and labor with neighbors</li>
             </ul>
           </li>
           <li class="step">
             <span class="step__num" aria-hidden="true">5</span>
-            <h3>Steward land and mentor</h3>
+            <h3>Steward and mentor</h3>
             <p>Manage land for the long term and pass your knowledge on.</p>
             <ul class="step__skills">
-              <li>Cover cropping or rotational grazing</li>
+              <li>Cover cropping or rotational grazing (moving livestock between pastures so each can recover)</li>
               <li>Hosting an apprentice</li>
               <li>Navigating land purchase, leases, and conservation easements</li>
             </ul>
@@ -567,7 +577,7 @@
               <p class="eyebrow">Self-education library</p>
               <h2 id="library-h">Learn to become a Subsister</h2>
               <p class="lede">Six self-education tracks, taken at your own pace. Each one begins with three plain-language topics.</p>
-              <p class="small mt-4">All library material is free to read. No membership required. Guide links are placeholders until the library is published.</p>
+              <p class="small mt-4">All library material is free to read. No membership required.</p>
             </div>
           </div>
           <div class="split__media">
@@ -609,9 +619,9 @@
             <p>How to grow vegetables, fruit, and staple crops at any scale, from containers to acreage.</p>
             <h4>Start here</h4>
             <ul class="start-list start-list--compact">
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Soil health and composting</a></li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Choosing crops suited to your climate</a></li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Extending the season with cold frames and row cover</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Soil health and composting</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Choosing crops suited to your climate</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Extending the season with cold frames and row cover</a></li>
             </ul>
           </article>
           <article class="card track">
@@ -620,9 +630,9 @@
             <p>How to keep what you grow safe and edible for months.</p>
             <h4>Start here</h4>
             <ul class="start-list start-list--compact">
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Safe canning principles, including when pressure canning is required</a></li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Fermentation basics</a></li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Root cellaring and cold storage</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Safe canning principles, including when pressure canning is required</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Fermentation basics</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Root cellaring and cold storage</a></li>
             </ul>
           </article>
           <article class="card track">
@@ -631,9 +641,9 @@
             <p>How households collect, store, and use water and energy wisely.</p>
             <h4>Start here</h4>
             <ul class="start-list start-list--compact">
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Rainwater collection and the rules that apply in your state</a></li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Passive heating and cooling for the home</a></li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">An introduction to wood heat and small-scale solar</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Rainwater collection and the rules that apply in your state</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Passive heating and cooling for the home</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">An introduction to wood heat and small-scale solar</a></li>
             </ul>
           </article>
           <article class="card track">
@@ -642,9 +652,9 @@
             <p>How to keep small livestock responsibly and humanely.</p>
             <h4>Start here</h4>
             <ul class="start-list start-list--compact">
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Laying hens as a first animal</a></li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Housing, feed, and predator protection</a></li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Local ordinances and standards of care</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Laying hens as a first animal</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Housing, feed, and predator protection</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Local ordinances and standards of care</a></li>
             </ul>
           </article>
           <article class="card track">
@@ -653,9 +663,9 @@
             <p>How to find, afford, and lawfully use land.</p>
             <h4>Start here</h4>
             <ul class="start-list start-list--compact">
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Zoning, water rights, and right-to-farm laws</a></li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Federal and state programs for beginning farmers</a></li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Budgeting for a homestead and reading a land listing</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Zoning, water rights, and right-to-farm laws</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Federal and state programs for beginning farmers</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Budgeting for a homestead and reading a land listing</a></li>
             </ul>
           </article>
           <article class="card track">
@@ -664,12 +674,13 @@
             <p>How to build the relationships that make a household resilient.</p>
             <h4>Start here</h4>
             <ul class="start-list start-list--compact">
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Seed and tool libraries</a></li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library" title="[Link to guide TBD]">Work exchanges and skill shares</a></li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#network" title="See the network section">Organizing a local Subsister chapter</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Seed and tool libraries</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#library-note" title="[Link to guide TBD]">Work exchanges and skill shares</a></li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><a href="#network" title="See the network section">Organizing a local Subsister node</a></li>
             </ul>
           </article>
         </div>
+        <p class="small placeholder-note" id="library-note"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><span><strong>Placeholder.</strong> The guides listed above are being written. Until the library is published, each guide link leads to this note.</span></p>
       </div>
     </section>
 
@@ -678,7 +689,7 @@
       <div class="container">
         <div class="section-head section-head--close">
           <p class="eyebrow">Glossary</p>
-          <h2 id="glossary-h">Ten terms to know</h2>
+          <h2 id="glossary-h">Fourteen terms to know</h2>
           <p class="lede">Words you will see on this site and hear at NSHA events.</p>
         </div>
         <dl class="glossary">
@@ -692,6 +703,10 @@
           <div class="glossary__item"><dt>Root cellar</dt><dd>A cool, dark, humid storage space, often below ground, that keeps vegetables and fruit fresh for months without electricity.</dd></div>
           <div class="glossary__item"><dt>Mutual aid network</dt><dd>A voluntary group whose members share labor, tools, knowledge, and surplus so that no household faces hardship alone.</dd></div>
           <div class="glossary__item"><dt>Apprenticeship</dt><dd>A structured period of learning by working alongside an experienced practitioner on a functioning homestead.</dd></div>
+          <div class="glossary__item"><dt>Cost-share</dt><dd>A program that pays part of the cost of an approved project, such as a fence, a well, or a soil practice, while the landowner pays the rest.</dd></div>
+          <div class="glossary__item"><dt>Conservation easement</dt><dd>A voluntary legal agreement that permanently limits how a piece of land may be developed. The owner keeps the land and may receive payment or a tax benefit in return.</dd></div>
+          <div class="glossary__item"><dt>Water rights</dt><dd>The legal right to take and use water from a stream, well, or rainfall. The rules differ widely from state to state.</dd></div>
+          <div class="glossary__item"><dt>Right-to-farm law</dt><dd>A state or local law that protects ordinary farming activity from certain nuisance complaints and restrictions. What is protected varies by state.</dd></div>
         </dl>
       </div>
     </section>
@@ -735,7 +750,7 @@
                   <rect x="120" y="510" width="560" height="16" rx="4" fill="#173324"/>
                 </svg>
               </div>
-              <figcaption>Subsisters gather at a regional chapter workshop.</figcaption>
+              <figcaption>Subsisters gather for a regional chapter event.</figcaption>
             </figure>
           </div>
         </div>
@@ -764,11 +779,11 @@
           <article class="card event card--hoverable">
             <div class="chip-row">
               <span class="chip chip--date"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><span>Date TBD</span></span>
-              <span class="chip chip--format">In person, with a virtual option</span>
+              <span class="chip chip--format">In person and online</span>
             </div>
             <h3>Land and Financing Clinic</h3>
             <p class="meta"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>[City, State] · [Venue] · Online link to follow</span></p>
-            <p>A working clinic on finding land, reading a listing, understanding easements and water rights, and walking through the loan and grant programs that may apply to you.</p>
+            <p>A working clinic on finding land, reading a listing, understanding easements and water rights (both explained in the <a href="#glossary">glossary</a>), and walking through the loan and grant programs that may apply to you.</p>
             <a class="btn btn--link card__link" href="#events-note" title="[Registration link TBD]">Sign up for the clinic <span class="nowrap"><span class="pending">(registration link to come)</span>&nbsp;<svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a>
           </article>
           <article class="card event card--hoverable">
@@ -809,7 +824,7 @@
             <p class="tier__who">One person who is practicing, learning, or planning a subsistence or homesteading life, whether on acreage, in a suburb, or in an apartment.</p>
             <ul class="tier__list">
               <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Recorded workshops and member discussion groups, in addition to the public learning library, which stays free to everyone.</span></li>
-              <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Listing in the Subsister directory, which lists members, and an introduction to your local node. (The node directory, described in the network section, lists groups.)</span></li>
+              <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>A listing in the Subsister member directory and an introduction to your local node.</span></li>
               <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Reduced registration for in-person workshops and clinics.</span></li>
               <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>A vote in chapter and association matters.</span></li>
             </ul>
@@ -824,13 +839,13 @@
               <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Everything in the Individual tier, extended to every adult in the household.</span></li>
               <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Priority consideration for apprenticeship placements and open days at the model operation (planned).</span></li>
               <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Household listing in the seed, tool, and labor exchange.</span></li>
-              <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Eligibility to apply for node-level grants and cost-share projects (planned).</span></li>
+              <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Eligibility to apply for node-level grants and cost-share projects, where a program pays part of a project’s cost (planned).</span></li>
             </ul>
             <a class="btn btn--primary" href="#membership-note" title="[Membership form TBD]">Join as a Household</a>
           </article>
           <article class="card tier">
             <span class="chip chip--fact tier__label">Organizations</span>
-            <h3>Chapter and Organizational Supporter</h3>
+            <h3>Organizational Supporter</h3>
             <p class="tier__price">Dues TBD <span class="small">Sliding scale · details to come</span></p>
             <p class="tier__who">Established homesteads, farms, cooperatives, churches, community gardens, local businesses, and other groups that want to host or anchor a node.</p>
             <ul class="tier__list">
@@ -839,7 +854,7 @@
               <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Ability to host NSHA workshops and clinics with association support.</span></li>
               <li><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>A seat in the annual chapter council.</span></li>
             </ul>
-            <a class="btn btn--outline" href="#membership-note" title="[Membership form TBD]">Support as a Chapter or Organization</a>
+            <a class="btn btn--outline" href="#membership-note" title="[Membership form TBD]">Support as an Organization</a>
           </article>
         </div>
         <p class="small placeholder-note" id="membership-note"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><span><strong>Placeholder.</strong> Membership forms will open when dues are finalized. Until then, the buttons above lead to this note.</span></p>
@@ -925,7 +940,7 @@
                   <text x="200" y="93">Mentor</text>
                   <text x="330" y="119">Farm</text>
                   <text x="420" y="203">Seed library</text>
-                  <text x="300" y="235">Chapter</text>
+                  <text x="300" y="235">Community garden</text>
                   <text x="160" y="221">Farm</text>
                   <text x="70" y="293">Tool share</text>
                   <text x="220" y="337">Household</text>
@@ -933,7 +948,7 @@
                 </g>
               </svg>
             </div>
-            <p class="small mesh-note">Each node is a household, farm, chapter, mentor, or shared resource. Nodes support one another directly. There is no headquarters that can fail.</p>
+            <p class="small mesh-note">Each node is a household, farm, mentor, or shared resource. Darker nodes are anchor sites: farms and households with room to host apprentices. Nodes support one another directly. There is no headquarters that can fail.</p>
           </div>
         </div>
 
@@ -1009,14 +1024,14 @@
                   <use href="#node-house" transform="translate(400 442) scale(1.3)" fill="#173324"/>
                 </svg>
               </div>
-              <figcaption>Neighbors trade seed, tools, and labor at a node exchange.</figcaption>
+              <figcaption>Nodes in a region support one another directly.</figcaption>
             </figure>
           </div>
         </div>
 
         <div class="subsection callout callout--role">
           <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-network"/></svg>
-          <p><strong>NSHA's role.</strong> NSHA's role is to support the network with shared standards, a public node directory (in preparation), connection to grants and funding passthrough (planned), and insurance and legal guidance (planned), while leaving day-to-day decisions with each node.</p>
+          <p><strong>NSHA's role.</strong> NSHA supports the network with shared standards, a public node directory (in preparation), connection to grants and funding passthrough (planned), and insurance and legal guidance (planned), while leaving day-to-day decisions with each node.</p>
         </div>
       </div>
     </section>
@@ -1031,7 +1046,7 @@
               <h2 id="land-h">Land and the model operation</h2>
             </div>
             <div class="prose">
-              <p>NSHA plans to acquire property and operate a working subsistence homestead on it. The operation will produce food and materials for the people who work it, and it will also serve as a school. Apprentices will live and work on site for a season under experienced Subsisters. Visitors will be able to see raised beds, orchards, livestock, a root cellar, water systems, and energy systems in real use rather than in a slideshow. The goal is a place that proves the model works and sends trained Subsisters home to start their own.</p>
+              <p>NSHA plans to acquire property and operate a working subsistence homestead on it. The operation will produce food and materials for the people who work it, and it will also serve as a school. Apprentices will live and work on site for a season under experienced Subsisters. Visitors will be able to see raised beds, orchards, livestock, a root cellar, water systems, and energy systems in daily use. The goal is a place that proves the model works and sends trained Subsisters home to start their own.</p>
             </div>
             <p class="status"><span class="status__dot" aria-hidden="true"></span><span><strong>Status:</strong> Property search and fundraising in progress. Location and timeline TBD.</span></p>
           </div>
@@ -1140,7 +1155,6 @@
           </div>
         </div>
 
-        <h3 class="visually-hidden">Funding pathways</h3>
         <div class="grid grid--3 grid--funding">
           <article class="card">
             <div class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-network"/></svg></div>
@@ -1169,9 +1183,9 @@
           <ul class="program-list program-list--cols">
             <li>The <strong>USDA Farm Service Agency</strong> administers loan programs for farm ownership and operating costs, including options intended for beginning farmers. <a href="https://www.fsa.usda.gov" rel="noopener">fsa.usda.gov</a></li>
             <li>The <strong>USDA Natural Resources Conservation Service</strong> runs conservation programs, such as the Environmental Quality Incentives Program, that can support soil, water, and habitat practices on working land. <a href="https://www.nrcs.usda.gov" rel="noopener">nrcs.usda.gov</a></li>
-            <li>The <strong>Beginning Farmer and Rancher Development Program</strong>, administered through USDA, funds education, training, and technical assistance projects for new producers. <a href="https://www.usda.gov" rel="noopener">usda.gov</a></li>
+            <li>The <strong>Beginning Farmer and Rancher Development Program</strong>, administered through USDA, funds organizations that provide education, training, and technical assistance to new farmers. Individuals benefit by taking part in funded programs rather than applying directly. <a href="https://www.usda.gov" rel="noopener">usda.gov</a></li>
             <li><strong>Grants.gov</strong> is the central listing of federal grant opportunities. <a href="https://www.grants.gov" rel="noopener">grants.gov</a></li>
-            <li>Many states and counties also run cost-share and small-farm programs. Ask your regional node what applies where you live.</li>
+            <li>Many states and counties also run cost-share programs, which pay part of a project’s cost, and other small-farm programs. Ask your local node what applies where you live.</li>
           </ul>
         </div>
         <p class="note">
@@ -1241,15 +1255,17 @@
             <span>Mailing address: [Mailing address TBD]</span>
             <span>Nonprofit status: [pending / 501(c)(3) determination TBD]</span>
           </address>
-          <div class="site-footer__statements">
-            <p class="small"><strong>Privacy.</strong> NSHA collects only the information needed to serve Subsisters and does not sell personal data. [Full privacy policy TBD]</p>
-            <p class="small"><strong>Accessibility.</strong> NSHA is committed to a website that everyone can use and welcomes reports of any barrier at [email TBD].</p>
-          </div>
         </div>
       </div>
       <div class="site-footer__legal">
-        <p>© <span data-year>[Year]</span> National Subsistence and Homesteading Association. All rights reserved.</p>
-        <p>NSHA is a nonprofit organization and is not a U.S. government agency.</p>
+        <div class="site-footer__statements">
+          <p><strong>Privacy.</strong> NSHA collects only the information needed to serve Subsisters and does not sell personal data. [Full privacy policy TBD]</p>
+          <p><strong>Accessibility.</strong> NSHA is committed to a website that everyone can use and welcomes reports of any barrier at [email TBD].</p>
+        </div>
+        <div class="site-footer__legal-lines">
+          <p>© <span data-year>[Year]</span> National Subsistence and Homesteading Association. All rights reserved.</p>
+          <p>NSHA is a nonprofit organization and is not a U.S. government agency.</p>
+        </div>
       </div>
     </div>
   </footer>

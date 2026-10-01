@@ -60,7 +60,6 @@ All tokens live at the top of `assets/css/styles.css` as CSS custom properties.
 | `--c-forest-700` | `#2B5E40` | Text links, eyebrow labels |
 | `--c-moss-600` | `#3D6B4A` | Primary buttons, icons, focus ring |
 | `--c-moss-700` | `#325A3D` | Primary hover |
-| `--c-olive-500` | `#5C7A4A` | Illustration mid-tone only (not for body text) |
 | `--c-sage-400` | `#8FA98C` | Rules, dividers, topographic pattern |
 | `--c-sage-300` | `#A9BFA6` | Illustration light hills, soft rules |
 | `--c-sage-100` | `#DCE8D9` | Icon circles, disclosure banner, chips |
@@ -69,7 +68,7 @@ All tokens live at the top of `assets/css/styles.css` as CSS custom properties.
 | `--c-wheat-500` | `#C99A3E` | The single warm accent: eyebrow dash, sun, status dot |
 | `--c-wheat-100` | `#F5EBD2` | Date chips, status pill, recommended badge |
 
-Text colors meet WCAG AA against the surfaces they sit on. `--c-olive-500` is decorative only.
+Text colors meet WCAG AA against the surfaces they sit on. The illustrations also use an olive mid-tone, `#5C7A4A`, written directly in the SVGs; it is decorative only and is not a token.
 
 ### Type
 
@@ -82,18 +81,19 @@ Text colors meet WCAG AA against the surfaces they sit on. `--c-olive-500` is de
 | `--fs-h3` / `--fs-h4` | `1.375rem` / `1.125rem` |
 | `--fs-lede` / `--fs-body` / `--fs-small` | `1.25rem` / `1.0625rem` / `0.875rem` |
 
-Headings (h1, h2) and prices use the serif; everything else is sans. Spacing follows an 8px scale (`--s-1` through `--s-10`). Google Fonts are loaded with one `<link>` in `<head>`; if that request fails, the fallback stack keeps the layout intact.
+Headings (h1, h2) and prices use the serif; everything else is sans. Spacing follows an 8px scale (`--s-1` through `--s-8`). Google Fonts are loaded with one `<link>` in `<head>`; if that request fails, the fallback stack keeps the layout intact.
 
 ### Glass
 
-Three surfaces use `backdrop-filter`: the sticky header (on its `::before` layer), the hero "Start here" card, and the four "Why it matters" cards. Each has a solid-color fallback (`--glass-fallback`) in an `@supports not (backdrop-filter…)` block beside it. The mobile navigation panel is deliberately opaque (`--c-band`); the CSS comment above it explains why and should stay. When the panel is open, `main.js` caps its height to the space below the header so it scrolls on short landscape screens.
+Three surfaces use `backdrop-filter`: the sticky header (on its `::before` layer), the hero "Start here" card, and the four "Why it matters" cards. Each has a solid-color fallback (`--glass-fallback`) in an `@supports not (backdrop-filter…)` block beside it. The mobile navigation panel is deliberately opaque (`--c-band`); the CSS comment above it explains why and should stay. When the panel is open, `main.js` caps its height to the space below the header so it scrolls on short landscape screens, sets `data-nav-open` on `<html>` to show a page scrim beneath the header, and closes the panel when focus or a click leaves the header.
 
 ## Image slots
 
-Every place a photograph belongs is a `<figure class="photo-slot">` with a unique `id`, a `data-photo-brief` attribute describing the photo to source, an inline SVG placeholder illustration, and a visible `<figcaption>`. There are twelve.
+Every place a photograph belongs is a `<figure class="photo-slot">` with a unique `id`, a `data-photo-brief` attribute describing the photo to source, an inline SVG placeholder illustration, and a visible `<figcaption>`. There are twelve, plus the hero landscape (`svg.hero__art`), which carries its own `data-photo-brief` and is listed first below. The hero has no caption: it is a decorative full-bleed background that text and the Start here card sit on.
 
 | Slot id | Section | Caption | Photo brief |
 | --- | --- | --- | --- |
+| `hero__art` (class) | Hero | none (decorative background) | Wide landscape of a working homestead at golden hour, house and barn mid-distance, rolling hills, no people, calm. 16:10, full-bleed; must tolerate being cropped at the sides and overlapped by text and the Start here card. |
 | `photo-hands-seedling` | What is subsistence | Every Subsister starts with a single planting. | Close-up of weathered adult hands setting a seedling into dark soil, soft morning light, shallow depth of field, no faces visible. Mood: quiet, hopeful, unhurried. (The placeholder illustration shows the seedling in a soil mound with a hand trowel; the photo should include the hands.) |
 | `photo-balcony-garden` | What is homesteading | Homesteading at apartment scale. | An ordinary city balcony with containers of herbs, tomatoes, and greens, apartment buildings softened in the background. Eye-level mid-shot in overcast daylight; it should look achievable, not styled. |
 | `photo-raised-beds` | Who is a Subsister | A suburban yard converted to raised beds. | Wide shot of a typical suburban backyard where lawn has given way to several timber raised beds in full production, the house visible at the frame's edge. Mood: tidy, productive, ordinary. |
@@ -101,13 +101,13 @@ Every place a photograph belongs is a `<figure class="photo-slot">` with a uniqu
 | `photo-pantry-shelves` | The Subsister pathway | A season of harvest, preserved for winter. | Rows of home-canned jars and stored winter squash on plain wooden shelves in a cool room, side lighting, warm but restrained tones. Focus on order and abundance rather than rustic styling. |
 | `photo-hens-coop` | The Subsister pathway | Laying hens are often a first animal. | Three or four hens foraging near a simple, well-built backyard coop in late-afternoon light. Eye-level, calm, uncluttered. |
 | `photo-library` | Learn to become a Subsister | Learning begins with a notebook and a packet of seed. | Overhead of an open field notebook, seed packets, and a hand trowel on a plain wooden table, warm daylight, orderly and uncluttered. Mood: studious, practical. |
-| `photo-events` | Upcoming events | Subsisters gather at a regional chapter workshop. | A small group of adults of mixed ages standing or seated around a wooden table in a barn or community hall, one person demonstrating canning or seed sorting while others watch closely. Natural side light, muted greens and neutrals, documentary feel, no posed smiles at the camera. |
+| `photo-events` | Upcoming events | Subsisters gather for a regional chapter event. | A small group of adults of mixed ages standing or seated around a wooden table in a barn or community hall, one person demonstrating canning or seed sorting while others watch closely. Natural side light, muted greens and neutrals, documentary feel, no posed smiles at the camera. |
 | `photo-community-table` | Membership | Subsisters share labor, tools, and knowledge. | A candid shot of adults of different ages and backgrounds at a long outdoor table or inside a barn, sorting produce or seeds together, natural light. Mood: working side by side, not posed. |
-| `photo-network` | The network | Neighbors trade seed, tools, and labor at a node exchange. | Two or three people passing seed packets, hand tools, or crates of produce to one another across a truck bed or folding table outdoors, with a rural or edge-of-town backdrop. Overcast or golden-hour light, calm and cooperative mood, shot at eye level. |
+| `photo-network` | The network | Nodes in a region support one another directly. | Two or three people passing seed packets, hand tools, or crates of produce to one another across a truck bed or folding table outdoors, with a rural or edge-of-town backdrop. Overcast or golden-hour light, calm and cooperative mood, shot at eye level. |
 | `photo-land` | Land and the model operation | Apprentices work raised beds at the planned model operation. | A wide shot of a working homestead in early morning, with orderly raised beds or rows in the foreground, a modest barn or outbuilding in the middle distance, and two or three people bent to the work. Deep greens, soft sky, sense of scale and order. |
 | `photo-funding` | Funding and grants | A land and financing clinic walks through application paperwork. | A close, over-the-shoulder view of two people at a table reviewing printed forms and a laptop, one pointing to a line on the page. Clean, well-lit interior, focused and unhurried, no visible logos or agency names on the documents. |
 
-All slots are 4:3 except `photo-community-table`, which is 16:9 (`photo-slot--wide`). Source photos at least 1600px wide for 4:3 slots and 1600 x 900 for the wide slot; the frame crops with `object-fit: cover`, so keep the subject away from the edges.
+All figure slots are 4:3 except `photo-community-table`, which is 16:9 (`photo-slot--wide`). The hero landscape is positioned with `preserveAspectRatio="xMidYMax slice"`; a replacement photo should use `object-fit: cover; object-position: center bottom` and be at least 2400px wide. Source photos at least 1600px wide for 4:3 slots and 1600 x 900 for the wide slot; the frame crops with `object-fit: cover`, so keep the subject away from the edges.
 
 ### Replacing an illustration with a real photograph
 
@@ -134,14 +134,14 @@ The frame's CSS already styles `img` the same way it styles the SVG (`width: 100
 
 Every value that is not yet known is shown as a visible placeholder rather than an invented figure. Search `index.html` for `TBD`, `[`, `to come`, and `placeholder-note` to find them all.
 
-Calls to action whose destination does not exist yet are real links that carry a visible `(link to come)` marker (`<span class="pending">`) and point at a visible **placeholder note** at the end of their own section (`#events-note`, `#membership-note`, `#network-note`, `#funding-note`; the Library section's note sits in its heading block). When a real page exists: change the `href`, delete the `<span class="pending">…</span>` and the `title` attribute, and remove the section's placeholder note once every link in that section is live. The "Status" line at the top of the Mission section ("NSHA is newly formed…") should go when the first programs are operating.
+Calls to action whose destination does not exist yet are real links that carry a visible `(link to come)` marker (`<span class="pending">`) and point at a visible **placeholder note** at the end of their own section (`#library-note`, `#events-note`, `#membership-note`, `#network-note`, `#funding-note`). The seventeen guide links in the Library tracks carry no inline marker, to keep the lists readable, but they jump to `#library-note` and carry a `title`. When a real page exists: change the `href`, delete the `<span class="pending">…</span>` and the `title` attribute, and remove the section's placeholder note once every link in that section is live. The status card beside the Mission intro ("Status: newly formed") should go when the first programs are operating.
 
 - [ ] **Event dates**: four `<span>Date TBD</span>` elements inside the date chips in the Events section. Replace each with a `<time>` element carrying a machine-readable `datetime`, for example `<time datetime="2027-05-15">May 15, 2027</time>`. (A `<time>` without `datetime` must contain a valid date string, which is why the placeholder is a `<span>`.)
 - [ ] **Event locations**: `[City, State] · [Venue]` in three event cards.
 - [ ] **Event registration links**: four card links and the calendar link point to `#events-note`.
 - [ ] **Membership dues**: `Dues TBD` and `Sliding scale · details to come` in all three tiers.
 - [ ] **Membership forms**: the three tier buttons point to `#membership-note`.
-- [ ] **Library guide links**: every "Start here" link in the six learning tracks carries `title="[Link to guide TBD]"` and points to `#library`.
+- [ ] **Library guide links**: every "Start here" link in the six learning tracks carries `title="[Link to guide TBD]"` and points to `#library-note`.
 - [ ] **Node directory, starter guide, and request-a-call links** in the Network section point to `#network-note`.
 - [ ] **Passthrough grants, program guides, and giving page links** in the Funding section point to `#funding-note`.
 - [ ] **Land status**: the status pill reads "Property search and fundraising in progress. Location and timeline TBD."

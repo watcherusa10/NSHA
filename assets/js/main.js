@@ -1,6 +1,8 @@
 /* NSHA — progressive enhancement only.
    1. Mobile navigation toggle (open/close, Escape, close on link click,
-      close when the viewport crosses into the desktop layout).
+      close when keyboard focus leaves the menu, close on a click outside it,
+      close when the viewport crosses into the desktop layout). While open,
+      html[data-nav-open] turns on the page scrim defined in styles.css.
    2. Current year in the footer.
    The page reads and navigates correctly without this file: the <html>
    element keeps its "no-js" class and the nav renders inline. The class is
@@ -16,15 +18,20 @@
   var header = document.querySelector('.site-header');
 
   if (toggle && nav) {
-    /* The open panel hangs below the header. Cap its height at the space left
-       between the header's bottom edge and the viewport bottom so short
-       (landscape) screens scroll inside the panel instead of clipping the CTA.
-       The CSS fallback is calc(100dvh - 100%), which ignores the disclosure
-       banner above the header at the top of the page; this measures it. */
+    /* The open panel hangs below the header. Size it to exactly the space left
+       between the header's bottom edge and the viewport bottom: the max-height
+       makes short (landscape) screens scroll inside the panel instead of
+       clipping the CTA, and the matching min-height makes the panel fill the
+       viewport so the hero (and its own "Become a Subsister" button) cannot
+       show beneath the menu's CTA. The CSS fallback is calc(100dvh - 100%),
+       which ignores the disclosure banner above the header at the top of the
+       page; this measures it. */
     var fitPanel = function () {
       if (!header) { return; }
       var space = window.innerHeight - header.getBoundingClientRect().bottom;
-      nav.style.maxHeight = Math.max(120, Math.round(space)) + 'px';
+      var px = Math.max(120, Math.round(space)) + 'px';
+      nav.style.maxHeight = px;
+      nav.style.minHeight = px;
     };
 
     var isOpen = function () {
@@ -35,7 +42,14 @@
       nav.setAttribute('data-open', open ? 'true' : 'false');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      if (open) { fitPanel(); } else { nav.style.maxHeight = ''; }
+      if (open) {
+        document.documentElement.setAttribute('data-nav-open', '');
+        fitPanel();
+      } else {
+        document.documentElement.removeAttribute('data-nav-open');
+        nav.style.maxHeight = '';
+        nav.style.minHeight = '';
+      }
     };
 
     toggle.addEventListener('click', function () {
@@ -57,6 +71,27 @@
         toggle.focus();
       }
     });
+
+    if (header) {
+      /* Keyboard: when focus Tabs out of the header (past the panel's last
+         link) the panel would otherwise stay open over the newly focused
+         element. relatedTarget is null when focus goes to <body>, so the
+         check runs after the browser has settled activeElement. */
+      header.addEventListener('focusout', function () {
+        if (!isOpen()) { return; }
+        window.setTimeout(function () {
+          var active = document.activeElement;
+          if (isOpen() && active && active !== document.body && !header.contains(active)) {
+            setOpen(false);
+          }
+        }, 0);
+      });
+
+      /* Pointer: a tap on the scrim (or anywhere outside the header) closes. */
+      document.addEventListener('click', function (event) {
+        if (isOpen() && !header.contains(event.target)) { setOpen(false); }
+      });
+    }
 
     /* Close the panel once when the layout switches to desktop, instead of
        checking innerWidth on every resize event. */
