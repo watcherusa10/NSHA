@@ -1,0 +1,22 @@
+/**
+ * Cloudflare Workers configuration for the NSHA static site.
+ *
+ * The site is plain static files, so this Worker has no script of its own:
+ * Cloudflare serves everything in the assets directory directly. Workers
+ * Builds (the GitHub integration) reads this file to know what to deploy;
+ * without it the build fails before it starts.
+ *
+ * The assets directory is the repository root so index.html stays at the
+ * top level. Files that are not part of the site are excluded in
+ * .assetsignore.
+ */
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "nsha",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  }
+}

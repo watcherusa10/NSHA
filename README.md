@@ -12,6 +12,8 @@ assets/css/styles.css   All styles, plain CSS, no build step
 assets/js/main.js       Mobile menu toggle and footer year (progressive enhancement only)
 assets/img/             Official NSHA logo files and favicons (see "Brand assets")
 assets/img/history/     Public-domain scans from USDA Farmers' Bulletin No. 1733 (see "Historical images")
+wrangler.jsonc          Cloudflare Workers config: serves the repo root as static assets
+.assetsignore           Root files excluded from the Cloudflare upload
 README.md               This file
 .gitignore
 ```
@@ -43,6 +45,19 @@ The site is plain static files, so any static host works.
 1. Create a new site and connect this repository (or drag the folder onto the Netlify dashboard).
 2. Leave the build command empty and set the publish directory to `/` (the repository root).
 3. Deploy. Netlify gives you a `*.netlify.app` URL; add a custom domain under *Domain settings* when ready.
+
+**Cloudflare Workers (static assets)**
+
+The repository is set up for Cloudflare's Workers Builds integration, which deploys automatically on every push and posts a preview build on each pull request. Two files make that work:
+
+- `wrangler.jsonc` names the Worker (`nsha`) and points Cloudflare at the repository root as the static-assets directory. There is no Worker script; Cloudflare serves the files directly.
+- `.assetsignore` lists the root files that are not part of the site (this README, the config files, `.git`) so they are not uploaded.
+
+In the Cloudflare dashboard the build command should be empty and the deploy command left at its default, `npx wrangler deploy`. If the Worker is ever renamed, change `name` in `wrangler.jsonc` to match. To test locally without deploying:
+
+```
+npx wrangler deploy --dry-run
+```
 
 Because the page uses relative paths (`assets/css/styles.css`), it works from a sub-path as well as a root domain.
 
