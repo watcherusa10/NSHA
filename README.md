@@ -14,7 +14,7 @@ README.md             This file
 .gitignore
 ```
 
-No frameworks, no bundler, no npm install. The page works with JavaScript disabled (the navigation renders inline), with web fonts blocked (system fallback stack), and in browsers without `backdrop-filter` (solid fallbacks).
+No frameworks, no bundler, no npm install. The page works with JavaScript disabled (the navigation renders inline and the header is not sticky on small screens), with web fonts blocked (system fallback stack), and in browsers without `backdrop-filter` (solid fallbacks). The `no-js` class on `<html>` is removed by `main.js` itself, not by an inline script, so if the script is blocked or fails to load the page stays in its working no-JS state.
 
 ## Preview locally
 
@@ -86,7 +86,7 @@ Headings (h1, h2) and prices use the serif; everything else is sans. Spacing fol
 
 ### Glass
 
-Three surfaces use `backdrop-filter`: the sticky header, the hero "Start here" card, and the four "Why it matters" cards. Each has a solid-color fallback in an `@supports not (backdrop-filter…)` block beside it. The mobile navigation panel is deliberately opaque (`#EDF3EA`); the CSS comment above it explains why and should stay.
+Three surfaces use `backdrop-filter`: the sticky header (on its `::before` layer), the hero "Start here" card, and the four "Why it matters" cards. Each has a solid-color fallback (`--glass-fallback`) in an `@supports not (backdrop-filter…)` block beside it. The mobile navigation panel is deliberately opaque (`--c-band`); the CSS comment above it explains why and should stay. When the panel is open, `main.js` caps its height to the space below the header so it scrolls on short landscape screens.
 
 ## Image slots
 
@@ -94,7 +94,7 @@ Every place a photograph belongs is a `<figure class="photo-slot">` with a uniqu
 
 | Slot id | Section | Caption | Photo brief |
 | --- | --- | --- | --- |
-| `photo-hands-seedling` | What is subsistence | Every Subsister starts with a single planting. | Close-up of weathered adult hands setting a seedling into dark soil, soft morning light, shallow depth of field, no faces visible. Mood: quiet, hopeful, unhurried. |
+| `photo-hands-seedling` | What is subsistence | Every Subsister starts with a single planting. | Close-up of weathered adult hands setting a seedling into dark soil, soft morning light, shallow depth of field, no faces visible. Mood: quiet, hopeful, unhurried. (The placeholder illustration shows the seedling in a soil mound with a hand trowel; the photo should include the hands.) |
 | `photo-balcony-garden` | What is homesteading | Homesteading at apartment scale. | An ordinary city balcony with containers of herbs, tomatoes, and greens, apartment buildings softened in the background. Eye-level mid-shot in overcast daylight; it should look achievable, not styled. |
 | `photo-raised-beds` | Who is a Subsister | A suburban yard converted to raised beds. | Wide shot of a typical suburban backyard where lawn has given way to several timber raised beds in full production, the house visible at the frame's edge. Mood: tidy, productive, ordinary. |
 | `photo-root-cellar` | Why it matters now | A root cellar keeps a harvest through winter without electricity. | Interior of a small root cellar or cold room: wooden bins of potatoes, onions, and winter squash, a few jars on a shelf, stone or earth walls, one soft light source from a doorway. Mood: cool, quiet, provident. |
@@ -132,17 +132,18 @@ The frame's CSS already styles `img` the same way it styles the SVG (`width: 100
 
 ## Placeholders to fill in
 
-Every value that is not yet known is shown as a visible placeholder rather than an invented figure. Search `index.html` for `TBD` and `[` to find them all.
+Every value that is not yet known is shown as a visible placeholder rather than an invented figure. Search `index.html` for `TBD`, `[`, `to come`, and `placeholder-note` to find them all.
 
-- [ ] **Event dates**: four `<time>Date TBD</time>` elements in the Events section. Replace the text and add a machine-readable `datetime`, for example `<time datetime="2027-05-15">May 15, 2027</time>`.
+Calls to action whose destination does not exist yet are real links that carry a visible `(link to come)` marker (`<span class="pending">`) and point at a visible **placeholder note** at the end of their own section (`#events-note`, `#membership-note`, `#network-note`, `#funding-note`; the Library section's note sits in its heading block). When a real page exists: change the `href`, delete the `<span class="pending">…</span>` and the `title` attribute, and remove the section's placeholder note once every link in that section is live. The "Status" line at the top of the Mission section ("NSHA is newly formed…") should go when the first programs are operating.
+
+- [ ] **Event dates**: four `<span>Date TBD</span>` elements inside the date chips in the Events section. Replace each with a `<time>` element carrying a machine-readable `datetime`, for example `<time datetime="2027-05-15">May 15, 2027</time>`. (A `<time>` without `datetime` must contain a valid date string, which is why the placeholder is a `<span>`.)
 - [ ] **Event locations**: `[City, State] · [Venue]` in three event cards.
-- [ ] **Event registration links**: each event card's link has `title="[Registration link TBD]"` and points to `#events`. Point them at real registration pages and remove the title attribute.
-- [ ] **Events calendar link**: `title="[Calendar link TBD]"`.
+- [ ] **Event registration links**: four card links and the calendar link point to `#events-note`.
 - [ ] **Membership dues**: `Dues TBD` and `Sliding scale · details to come` in all three tiers.
-- [ ] **Membership forms**: the three tier buttons carry `title="[Membership form TBD]"`.
+- [ ] **Membership forms**: the three tier buttons point to `#membership-note`.
 - [ ] **Library guide links**: every "Start here" link in the six learning tracks carries `title="[Link to guide TBD]"` and points to `#library`.
-- [ ] **Node directory, starter guide, and request-a-call links** in the Network section.
-- [ ] **Passthrough grants, program guides, and giving page links** in the Funding section.
+- [ ] **Node directory, starter guide, and request-a-call links** in the Network section point to `#network-note`.
+- [ ] **Passthrough grants, program guides, and giving page links** in the Funding section point to `#funding-note`.
 - [ ] **Land status**: the status pill reads "Property search and fundraising in progress. Location and timeline TBD."
 - [ ] **Contact email**: `[email TBD]` appears in the footer contact block and in the accessibility statement.
 - [ ] **Mailing address**: `[Mailing address TBD]`.
@@ -150,8 +151,8 @@ Every value that is not yet known is shown as a visible placeholder rather than 
 - [ ] **Privacy policy**: `[Full privacy policy TBD]`; link to the real policy when it exists.
 - [ ] **Copyright year**: filled by JavaScript; the no-JS fallback text is `[Year]` and can be hard-coded once you prefer.
 
-Two things should not change: the "NSHA is not a U.S. government agency" disclosure (top banner, footer, legal line), and the funding note stating that NSHA does not administer federal programs and does not guarantee eligibility for any grant, loan, or program.
+Two things should not change: the "NSHA is not a U.S. government agency" disclosure (top banner, footer, legal line), and the funding note stating that NSHA does not administer federal programs and does not guarantee eligibility for any grant, loan, or program. The federal programs in "Programs to know" are described in general terms with links to agency root domains only; do not add figures, rates, or deadlines without a source.
 
 ## Accessibility and quality checks
 
-The page has one `h1`, semantic landmarks (`header`, `nav`, `main`, `footer`), a skip link, visible focus styles, `aria-label`s on icon-only controls, `prefers-reduced-motion` support, and no horizontal scrolling at 390px, 834px, or 1440px. It passes html-validate and axe-core's WCAG 2 A/AA rule set with zero violations. If you edit the page, re-run an accessibility checker such as the axe browser extension before publishing.
+The page has one `h1`, semantic landmarks (`header`, `nav`, `main`, `footer`), a skip link, visible focus styles, `aria-label`s on icon-only controls, `prefers-reduced-motion` support, link and menu hit areas of at least 44px, and no horizontal scrolling at 390px, 834px, or 1440px. It passes html-validate and axe-core's WCAG 2 A/AA rule set with zero violations. If you edit the page, re-run an accessibility checker such as the axe browser extension before publishing.
