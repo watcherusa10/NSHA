@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#173324">
   <title>NSHA | National Subsistence and Homesteading Association</title>
-  <meta name="description" content="The National Subsistence and Homesteading Association is a nonprofit that helps people learn to grow, preserve, and provide for themselves, connects Subsisters in a decentralized support network, and works to open pathways to land and funding.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' fill='none'%3E%3Ccircle cx='20' cy='20' r='19' fill='%23173324'/%3E%3Cpath d='M9 25h22' stroke='%23A9BFA6' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M11.5 29h17' stroke='%23A9BFA6' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M14.5 33h11' stroke='%23A9BFA6' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M20 25V12' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M20 17c-5 0-8-3-8-7 4 0 8 3 8 7z' fill='%23DCE8D9'/%3E%3Cpath d='M20 14c0-4 3-7 8-7 0 4-3 7-8 7z' fill='%23A9BFA6'/%3E%3C/svg%3E">
+  <meta name="description" content="The National Subsistence and Homesteading Association is a nonprofit that holds that near-full household subsistence, supported by a decentralized network of Subsisters, is the soundest way of life for most Americans, as it was a century ago. NSHA teaches the skills, connects the network, and works to open pathways to land and funding.">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Source+Serif+4:wght@500;600;700&amp;display=swap" rel="stylesheet">
@@ -34,7 +35,6 @@
       <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
       <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
       <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
-      <symbol id="logo-mark" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" fill="#173324"/><path d="M9 25h22" stroke="#A9BFA6" stroke-width="1.5" stroke-linecap="round"/><path d="M11.5 29h17" stroke="#A9BFA6" stroke-width="1.5" stroke-linecap="round"/><path d="M14.5 33h11" stroke="#A9BFA6" stroke-width="1.5" stroke-linecap="round"/><path d="M20 25V12" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/><path d="M20 17c-5 0-8-3-8-7 4 0 8 3 8 7z" fill="#DCE8D9"/><path d="M20 14c0-4 3-7 8-7 0 4-3 7-8 7z" fill="#A9BFA6"/></symbol>
     </defs>
   </svg>
 
@@ -50,11 +50,10 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="#top">
-        <svg class="brand__mark" aria-hidden="true" focusable="false"><use href="#logo-mark"/></svg>
-        <span class="brand__text">
-          <span class="brand__abbr">NSHA</span>
-          <span class="brand__full"><span>National Subsistence and</span> <span>Homesteading Association</span></span>
-        </span><span class="visually-hidden"> (home)</span>
+        <picture>
+          <source media="(min-width: 640px)" srcset="assets/img/nsha-logo-lockup.png">
+          <img class="brand__logo" src="assets/img/nsha-logo-mark.png" alt="NSHA, National Subsistence and Homesteading Association" width="320" height="410">
+        </picture><span class="visually-hidden"> (home)</span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
         <svg class="icon icon--menu" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>
@@ -64,6 +63,7 @@
         <ul class="nav__list">
           <li><a class="nav__link" href="#mission">About</a></li>
           <li><a class="nav__link" href="#about">Learn</a></li>
+          <li><a class="nav__link" href="#history">History</a></li>
           <li><a class="nav__link" href="#pathway">Pathway</a></li>
           <li><a class="nav__link" href="#events">Events</a></li>
           <li><a class="nav__link" href="#membership">Membership</a></li>
@@ -83,7 +83,7 @@
         <div class="hero__copy">
           <p class="eyebrow">National Subsistence and Homesteading Association</p>
           <h1 id="hero-h">A national resource for subsistence and homesteading</h1>
-          <p class="lede">The National Subsistence and Homesteading Association helps people learn to grow, preserve, and provide for themselves, connects them with others who do the same, and works to open pathways to land.</p>
+          <p class="lede">NSHA holds that a household providing most of what it needs, in common cause with other households that do the same, is the soundest way for most Americans to live. It was ordinary life a century ago. NSHA works to make it attainable again through education, land, funding, and a decentralized network of Subsisters.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="#membership">Become a Subsister</a>
             <a class="btn btn--outline" href="#library">Start learning</a>
@@ -144,20 +144,12 @@
     <!-- ============================== MISSION ============================== -->
     <section class="section" id="mission" aria-labelledby="mission-h">
       <div class="container">
-        <div class="split split--wide split--top split--lead">
-          <div class="split__copy">
-            <div class="section-head section-head--flush">
-              <p class="eyebrow">About NSHA</p>
-              <h2 id="mission-h">What NSHA does</h2>
-              <p class="lede">The National Subsistence and Homesteading Association exists to make subsistence and homesteading lifestyles understandable, attainable, and durable for ordinary Americans. NSHA advocates for the people who grow, raise, preserve, and build for themselves, and works to remove the barriers of land, knowledge, and money that keep others from joining them.</p>
-            </div>
-          </div>
-          <div class="split__media">
-            <aside class="callout callout--status" aria-labelledby="mission-status-h">
-              <h3 class="h4" id="mission-status-h"><span class="status__dot" aria-hidden="true"></span>Status: newly formed</h3>
-              <p>NSHA is newly formed. The programs described on this page are in development, and anything marked “Planned” is not yet operating. This page sets out what the association intends to do and how to take part while it is built.</p>
-              <p class="small">Progress on land and the model operation is reported in <a href="#land">its own section</a>.</p>
-            </aside>
+        <div class="section-head section-head--mission">
+          <p class="eyebrow">About NSHA</p>
+          <h2 id="mission-h">What NSHA does</h2>
+          <p class="lede">The National Subsistence and Homesteading Association exists to make subsistence and homesteading lifestyles understandable, attainable, and sustainable for ordinary Americans. NSHA advocates for the people who grow, raise, preserve, and build for themselves, and works to remove the barriers of land, knowledge, and money that keep others from joining them.</p>
+          <div class="prose mission-position">
+            <p>NSHA welcomes every step toward self-provision, from a first garden bed onward. Its purpose, though, is larger than encouraging a pastime. The association holds that near-full subsistence is the optimal way of life for the majority of Americans: a household that produces most of what it needs and meets the rest through exchange with other subsisting households, next door or across the country. That arrangement was common and unremarkable a century ago. NSHA treats it as a destination to be reached in steps, not a hobby to be kept on the side.</p>
           </div>
         </div>
         <div class="grid grid--4 mission-grid">
@@ -195,17 +187,17 @@
         <div class="section-head">
           <p class="eyebrow">Learn</p>
           <h2 id="about-h">What is subsistence? What is homesteading?</h2>
-          <p class="lede">Two related ideas, one goal: meeting more of your household's needs with your own hands, land, and community.</p>
+          <p class="lede">Two related ideas, one destination: a household that meets its own needs with its own hands, its own land, and its community.</p>
         </div>
 
         <div class="split split--wide">
           <div class="split__copy prose">
             <h3>What is subsistence?</h3>
-            <p>Subsistence means producing a meaningful share of what your household needs to live: food, water, heat, and everyday goods. It does not mean producing all of it. A family that grows half its vegetables, keeps a few laying hens, and heats with wood it cut itself is practicing subsistence. So is a household that puts up a season of produce from a shared garden plot.</p>
-            <p>Subsistence is not the same as living “off the grid,” and it is not a rejection of modern life. Most people who practice subsistence hold jobs, use electricity, and shop at stores. It is also different from farming as a business, where the goal is to sell a crop at a profit. The goal of subsistence is to meet your own needs first, reduce what you must buy, and build a margin of safety for your household.</p>
+            <p>Subsistence means a household producing what it needs to live: food, water, heat, shelter, and everyday goods. In full form, the household supplies nearly all of this itself and obtains the rest by exchange with other subsisting households, near or far. That is the destination. A family that grows half its vegetables, keeps a few laying hens, and heats with wood it cut itself is on the way there, and so is a household that puts up a season of produce from a shared garden plot. NSHA counts every one of those steps as subsistence practice, and holds that the destination, not the first step, is the point.</p>
+            <p>Subsistence is not the same as living “off the grid,” and it is not a rejection of modern life or of other people. It has always depended on neighbors, and NSHA encourages reliance on other Subsisters as part of the model rather than a departure from it. Many practitioners hold jobs and use modern tools while they move toward the destination. Subsistence is also different from farming as a business, where the goal is to sell a crop at a profit. The goal of subsistence is to meet your own needs first, buy only what you must, and build a margin of safety that no supply chain or paycheck can take away.</p>
             <div class="def">
               <span class="def__term">Subsistence</span>
-              <span class="def__text">Producing a meaningful share of what your household needs, rather than buying all of it.</span>
+              <span class="def__text">A household producing nearly all of what it needs and meeting the rest through exchange with other subsisting households.</span>
             </div>
           </div>
           <div class="split__media">
@@ -249,7 +241,7 @@
           <div class="split__copy prose">
             <h3>What is homesteading?</h3>
             <p>Homesteading is the practice of organizing home life around subsistence. It brings together growing food, keeping animals, preserving the harvest, making and repairing things, and caring for land and water. Historically the word referred to settling and working a parcel of land. Today it describes a way of living more than a piece of property.</p>
-            <p>Homesteading happens at many scales. An apartment resident who grows herbs on a balcony, ferments vegetables, and mends clothing is homesteading. So is a suburban family that replaces a lawn with raised beds and a few fruit trees. So is a household on rural acreage with a barn, a woodlot, and livestock. The scale changes. The habits do not.</p>
+            <p>Homesteading happens at many scales. An apartment resident who grows herbs on a balcony, ferments vegetables, and mends clothing is homesteading. So is a suburban family that replaces a lawn with raised beds and a few fruit trees. So is a household on rural acreage with a barn, a woodlot, and livestock. The scale changes. The habits do not. NSHA’s work is to help any household that wants to move up that scale do so.</p>
             <div class="def">
               <span class="def__term">Homestead</span>
               <span class="def__text">A home, at any scale, where the household produces food and meets other needs through its own labor.</span>
@@ -317,14 +309,14 @@
               <h2 id="subsister-h">Who is a Subsister?</h2>
             </div>
             <div class="prose">
-              <p>A Subsister is a member of the National Subsistence and Homesteading Association. Subsisters are at every stage, from those planting a first tomato to those stewarding working land. What unites them is a shared ethos: take responsibility for meeting your own needs, and stand ready to help others do the same. Self-reliance and mutual support are not opposites. A Subsister practices both.</p>
+              <p>A Subsister is a member of the National Subsistence and Homesteading Association. Subsisters are at every stage, from those planting a first tomato to those stewarding working land. What unites them is a shared commitment: to move their own household toward providing for itself, and to stand ready to help other households do the same. Self-reliance and mutual support are not opposites. A Subsister practices both, and understands that reliance on other Subsisters, whether down the road or in another state, is how subsistence has always worked.</p>
             </div>
             <h3 class="visually-hidden">Four principles</h3>
             <ol class="principles">
-              <li>Produce what you can. Buy what you must.</li>
+              <li>Produce what you can. Buy what you must. Move the line each year.</li>
               <li>Learn a skill, then teach it.</li>
               <li>Care for land and water as if you will hand them on.</li>
-              <li>No household stands alone. The network is the safety net.</li>
+              <li>No household stands alone. Other Subsisters, near and far, are the safety net.</li>
             </ol>
           </div>
           <div class="split__media">
@@ -363,15 +355,15 @@
           </div>
           <div class="mythfact">
             <div class="mythfact__myth"><span class="chip chip--muted">Myth</span><p>Subsistence means going without.</p></div>
-            <div class="mythfact__fact"><span class="chip chip--fact">Fact</span><p>People who practice subsistence use modern tools, hold jobs, and shop at stores; the aim is to depend on them less, not to abandon them.</p></div>
+            <div class="mythfact__fact"><span class="chip chip--fact">Fact</span><p>Subsistence households eat better, not worse. The aim is to depend less on what must be bought, with modern tools and knowledge in hand, not to do without.</p></div>
           </div>
           <div class="mythfact">
-            <div class="mythfact__myth"><span class="chip chip--muted">Myth</span><p>Homesteading is a political statement.</p></div>
-            <div class="mythfact__fact"><span class="chip chip--fact">Fact</span><p>People of every background and belief practice it, for reasons as plain as fresher food and lower bills.</p></div>
+            <div class="mythfact__myth"><span class="chip chip--muted">Myth</span><p>Subsistence means going it alone.</p></div>
+            <div class="mythfact__fact"><span class="chip chip--fact">Fact</span><p>Subsistence has always depended on neighbors. NSHA encourages reliance on other Subsisters, next door or across the country, as part of the model.</p></div>
           </div>
           <div class="mythfact">
-            <div class="mythfact__myth"><span class="chip chip--muted">Myth</span><p>It is a full-time job.</p></div>
-            <div class="mythfact__fact"><span class="chip chip--fact">Fact</span><p>A productive household garden and a well-stocked pantry fit around a regular job and family life.</p></div>
+            <div class="mythfact__myth"><span class="chip chip--muted">Myth</span><p>You have to do it all at once.</p></div>
+            <div class="mythfact__fact"><span class="chip chip--fact">Fact</span><p>Subsistence is a destination reached in steps. Most Subsisters move toward it over years, often while holding a job, trading a little more each season for a little less bought.</p></div>
           </div>
         </div>
       </div>
@@ -383,7 +375,7 @@
         <div class="section-head">
           <p class="eyebrow">The public interest</p>
           <h2 id="why-h">Why it matters now</h2>
-          <p class="lede">Four reasons a household's ability to provide for itself is a public concern.</p>
+          <p class="lede">Four reasons a household’s ability to provide for itself is a public concern, not a private hobby.</p>
         </div>
         <div class="why-layout">
           <div class="grid grid--2">
@@ -405,7 +397,7 @@
             <article class="card card--glass">
               <div class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-people"/></svg></div>
               <h3>Skills lost between generations</h3>
-              <p>Within living memory, many households knew how to garden, can, butcher, mend, and build. Much of that knowledge was never written down, and it disappears when the people who hold it are gone.</p>
+              <p>A century ago, gardening, canning, butchering, mending, and building were ordinary household skills, because daily life required them. Much of that knowledge was never written down, and it disappears when the people who hold it are gone.</p>
             </article>
           </div>
           <figure class="photo-slot why-layout__figure" id="photo-root-cellar" data-photo-brief="Interior of a small root cellar or cold room: wooden bins of potatoes, onions, and winter squash, a few jars on a shelf, stone or earth walls, one soft light source from a doorway. Mood: cool, quiet, provident.">
@@ -446,13 +438,97 @@
       </div>
     </section>
 
+    <!-- ============================== HISTORY ============================== -->
+    <section class="section" id="history" aria-labelledby="history-h">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Precedent</p>
+          <h2 id="history-h">This is not a new idea. It is an American one.</h2>
+          <p class="lede">For most of the nation’s history, a household that fed, housed, and supplied itself was the ordinary case, and the federal government treated that way of life as a public good worth land, money, and printed instruction. NSHA’s position rests on that record.</p>
+        </div>
+
+        <ol class="grid grid--3 eras">
+          <li class="card era">
+            <span class="chip chip--date era__year">1862</span>
+            <h3>The Homestead Act</h3>
+            <p>Signed by President Lincoln, the Act offered 160 acres of public land to any adult who would live on it, improve it, and work it for five years. About 1.6 million homesteads were granted before the program closed, covering roughly 270 million acres, close to a tenth of the land area of the United States. The last claim was proved in Alaska in 1988.</p>
+            <p class="credit">Source: <a href="https://www.archives.gov/">National Archives</a></p>
+          </li>
+          <li class="card era">
+            <span class="chip chip--date era__year">1889</span>
+            <h3>The Farmers’ Bulletins</h3>
+            <p>The Department of Agriculture began publishing Farmers’ Bulletins: short, free, plain-language guides mailed to any household that asked. They taught Americans to garden, keep poultry, preserve food, and plan a small holding. By 1934 the series had passed 1,700 titles.</p>
+            <p class="credit">Source: <a href="https://www.nal.usda.gov/">National Agricultural Library</a></p>
+          </li>
+          <li class="card era">
+            <span class="chip chip--date era__year">1920</span>
+            <h3>The turning point</h3>
+            <p>The 1920 census was the first in which more Americans lived in towns and cities than in the countryside. Even then, about three in ten Americans still lived on farms, and household production of food, fuel, and clothing remained ordinary in town and country alike.</p>
+            <p class="credit">Source: <a href="https://www.census.gov/">U.S. Census Bureau</a></p>
+          </li>
+          <li class="card era">
+            <span class="chip chip--date era__year">1933</span>
+            <h3>The Division of Subsistence Homesteads</h3>
+            <p>In the depth of the Depression, Congress set aside $25 million under the National Industrial Recovery Act to build planned communities where families could combine part-time wage work with land enough to feed themselves. The Department of the Interior’s Division of Subsistence Homesteads started about three dozen such communities, beginning with Arthurdale, West Virginia. “Subsistence homestead” was, for a time, the language of federal policy.</p>
+            <p class="credit">Source: <a href="https://www.archives.gov/">National Archives</a></p>
+          </li>
+          <li class="card era era--featured">
+            <span class="chip chip--date era__year">1934</span>
+            <h3>Farmers’ Bulletin No. 1733</h3>
+            <p>The Department of Agriculture published <cite>Planning a Subsistence Homestead</cite>, a step-by-step guide for a working family to live on about one acre. It is featured below.</p>
+            <p class="credit"><a href="#bulletin">Read about the bulletin</a></p>
+          </li>
+          <li class="card era">
+            <span class="chip chip--date era__year">1942</span>
+            <h3>Victory Gardens</h3>
+            <p>During the Second World War the government asked households to grow their own vegetables so that commercial produce could go to the troops. By commonly cited wartime estimates, Americans planted some 20 million Victory Gardens, which supplied a substantial share of the fresh vegetables the country ate.</p>
+            <p class="credit">Source: <a href="https://www.nal.usda.gov/">National Agricultural Library</a></p>
+          </li>
+        </ol>
+
+        <div class="bulletin subsection" id="bulletin">
+          <figure class="scan scan--cover">
+            <img src="assets/img/history/fb1733-cover.jpg" alt="Cover of U.S. Department of Agriculture Farmers’ Bulletin No. 1733, Planning a Subsistence Homestead, with a photograph of a farmhouse behind a cultivated garden" width="816" height="1307" loading="lazy">
+            <figcaption>Farmers’ Bulletin No. 1733, issued May 1934 and revised April 1940.</figcaption>
+          </figure>
+          <div class="bulletin__body prose">
+            <p class="eyebrow">Featured document</p>
+            <h3>Planning a Subsistence Homestead (1934)</h3>
+            <p>Written by Walter W. Wilcox and published by the U.S. Department of Agriculture, this bulletin told an ordinary working family exactly how to live on a small piece of land: about one acre for a garden and poultry, two more if they wanted to keep a cow. It assumed that the head of the household held a job in town. In plain terms, it is the federal government’s own handbook for the way of life NSHA advocates.</p>
+            <blockquote class="pullquote">
+              <p>“Many families with small incomes can lower their living costs by living on a small piece of land and growing their own food, and at the same time enjoy a greater quantity and variety of fresh and canned vegetables and fruit. Gardening and poultry raising on a small piece of land is about all an employed man and his family can care for by hand. About 1 acre of good land is enough for such purposes.”</p>
+              <footer>Walter W. Wilcox, <cite>Planning a Subsistence Homestead</cite>, Farmers’ Bulletin No. 1733, U.S. Department of Agriculture, 1934</footer>
+            </blockquote>
+            <p>The two plans below are reproduced from the bulletin. Each lays out a one-acre lot, 100 by 440 feet, with a house, a vegetable garden, small fruit, an orchard, and a poultry run, sized to feed a family of five. The bulletin judged this “all that a man who is employed elsewhere during the growing season can care for properly by hand with the help of his family.”</p>
+          </div>
+        </div>
+
+        <div class="grid grid--2 plans">
+          <figure class="scan">
+            <img src="assets/img/history/fb1733-figure1-north-plan.jpg" alt="Figure 1 from the bulletin: a plan drawing of a one-acre subsistence homestead for the North, 100 by 440 feet, with house, drive, grapes, vegetable garden, berries, asparagus, poultry run, melons, late potatoes and sweet corn, and an orchard of apple, pear, and cherry trees" width="1600" height="637" loading="lazy">
+            <figcaption>Figure 1. A suggested plan for a one-acre subsistence homestead in the North.</figcaption>
+          </figure>
+          <figure class="scan">
+            <img src="assets/img/history/fb1733-figure2-south-plan.jpg" alt="Figure 2 from the bulletin: a plan drawing of a one-acre subsistence homestead for the South, with house, garage, grapes, vegetable garden, strawberries, dewberries, poultry shed and run, squashes and melons, corn, sorghum, blackeye peas, and pear, apple, and pecan trees" width="1165" height="417" loading="lazy">
+            <figcaption>Figure 2. A suggested plan for a one-acre subsistence homestead in the South.</figcaption>
+          </figure>
+        </div>
+        <p class="small credit credit--block">Images: U.S. Department of Agriculture, Farmers’ Bulletin No. 1733, via the <a href="https://www.nal.usda.gov/exhibits/ipd/small/exhibits/show/subsistence/item/29">National Agricultural Library’s <cite>Small Agriculture</cite> exhibit</a>. Works of the United States government, in the public domain.</p>
+
+        <div class="callout callout--position subsection">
+          <h3 class="h4">What NSHA takes from this record</h3>
+          <p>A century ago, a household that produced most of what it consumed was not a curiosity. It was the common case, and public policy backed it with land, instruction, and planned communities. NSHA’s position is that the same arrangement, carried out with modern tools and knowledge and bound together by a decentralized network of Subsisters, remains the soundest way for most American households to live. The programs that once supported it have lapsed. NSHA exists to take up that work.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================== PATHWAY ============================== -->
     <section class="section" id="pathway" aria-labelledby="pathway-h">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">The Subsister pathway</p>
           <h2 id="pathway-h">From curious to established, in five steps</h2>
-          <p class="lede">Each step builds on the one before, and every step can be taken where you already live.</p>
+          <p class="lede">Each step builds on the one before. The destination is a household that provides nearly all of what it needs, and every step toward it can be taken where you already live.</p>
         </div>
         <ol class="stepper">
           <li class="step">
@@ -706,7 +782,7 @@
           <p class="lede">Words you will see on this site and hear at NSHA events.</p>
         </div>
         <dl class="glossary">
-          <div class="glossary__item"><dt>Subsistence</dt><dd>Producing a meaningful share of what your household needs, rather than buying all of it.</dd></div>
+          <div class="glossary__item"><dt>Subsistence</dt><dd>A household producing nearly all of what it needs and meeting the rest through exchange with other subsisting households. Partial practice is a step toward it.</dd></div>
           <div class="glossary__item"><dt>Homestead</dt><dd>A home, at any scale, where the household produces food and meets other needs through its own labor.</dd></div>
           <div class="glossary__item"><dt>Subsister</dt><dd>A member of the National Subsistence and Homesteading Association, committed to self-reliance and mutual support.</dd></div>
           <div class="glossary__item"><dt>Node</dt><dd>A small, local, self-organizing group of Subsisters (households, farms, or shared resources such as a seed library) that meets regularly and trades skills, tools, seed, and labor.</dd></div>
@@ -921,7 +997,7 @@
             </div>
             <div class="prose">
               <p>A decentralized network has no headquarters that everything depends on. It is made of many small, local groups, called nodes, that operate on their own and cooperate with one another. Each node knows its own soil, climate, laws, and neighbors. The nodes of one region together form a chapter, which organizes regional events and carries the region's voice within the association. Skills pass directly from one Subsister to the next. Seed, tools, and labor move between households without waiting on permission from anyone far away.</p>
-              <p>Because no single node holds everything, no single failure can stop the whole. If one group loses a meeting place or a leader moves away, the others carry on and help it rebuild. NSHA's role is coordination, not control. NSHA will set shared standards, keep the directory of nodes, and connect nodes to funding and one another, and it plans to provide insurance and legal guidance as the association matures. The work itself belongs to the nodes.</p>
+              \1\n              <p>Distance is not a barrier. A Subsister in one state can mentor, trade seed with, or buy surplus from a Subsister in another, and nodes are encouraged to link with nodes far away as readily as with the one in the next county. Relying on other subsisting households, near or far, is not a compromise of self-reliance. It is the form self-reliance has always taken.</p>
             </div>
           </div>
           <div class="split__media">
@@ -1217,7 +1293,7 @@
       <div class="container container--narrow">
         <p class="eyebrow">Get involved</p>
         <h2 id="join-h">Get started</h2>
-        <p class="lede">Membership, events, and the network are open to households at any scale, from a windowsill to acreage.</p>
+        <p class="lede">Membership, events, and the network are open to households at any scale, from a windowsill to acreage. The destination is the same for all of them.</p>
         <div class="btn-row">
           <a class="btn btn--light" href="#membership">Become a Subsister</a>
           <a class="btn btn--outline-light" href="#events">Attend an event</a>
@@ -1233,12 +1309,8 @@
     <div class="container">
       <div class="site-footer__grid">
         <div>
-          <a class="brand" href="#top">
-            <svg class="brand__mark" aria-hidden="true" focusable="false"><use href="#logo-mark"/></svg>
-            <span class="brand__text">
-              <span class="brand__abbr">NSHA</span>
-              <span class="brand__full"><span>National Subsistence and</span> <span>Homesteading Association</span></span>
-            </span><span class="visually-hidden"> (home)</span>
+          <a class="brand brand--footer" href="#top">
+            <img class="brand__logo brand__logo--full" src="assets/img/nsha-logo-full.png" alt="NSHA, National Subsistence and Homesteading Association. Self-reliance, land stewardship, stronger communities." width="1000" height="517" loading="lazy"><span class="visually-hidden"> (home)</span>
           </a>
           <p class="site-footer__tagline">Advocacy, education, land, and funding for Subsisters across America.</p>
           <p class="site-footer__disclosure"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-shield"/></svg><span>An official resource of the National Subsistence and Homesteading Association, a nonprofit organization. <strong>NSHA is not a U.S. government agency.</strong></span></p>
@@ -1249,6 +1321,7 @@
             <li><a href="#mission">About NSHA</a></li>
             <li><a href="#why">Why it matters</a></li>
             <li><a href="#about">What is subsistence</a></li>
+            <li><a href="#history">History and precedent</a></li>
             <li><a href="#subsister">Who is a Subsister</a></li>
             <li><a href="#pathway">The Subsister pathway</a></li>
             <li><a href="#library">Learning library</a></li>

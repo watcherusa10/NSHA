@@ -7,10 +7,12 @@ The page is written to read like a polished, federal-grade public resource while
 ## What is in this repository
 
 ```
-index.html            The whole page (one file, all sections)
-assets/css/styles.css All styles, plain CSS, no build step
-assets/js/main.js     Mobile menu toggle and footer year (progressive enhancement only)
-README.md             This file
+index.html              The whole page (one file, all sections)
+assets/css/styles.css   All styles, plain CSS, no build step
+assets/js/main.js       Mobile menu toggle and footer year (progressive enhancement only)
+assets/img/             Official NSHA logo files and favicons (see "Brand assets")
+assets/img/history/     Public-domain scans from USDA Farmers' Bulletin No. 1733 (see "Historical images")
+README.md               This file
 .gitignore
 ```
 
@@ -87,6 +89,25 @@ Headings (h1, h2) and prices use the serif; everything else is sans. Spacing fol
 
 Three surfaces use `backdrop-filter`: the sticky header (on its `::before` layer), the hero "Start here" card, and the four "Why it matters" cards. Each has a solid-color fallback (`--glass-fallback`) in an `@supports not (backdrop-filter…)` block beside it. The mobile navigation panel is deliberately opaque (`--c-band`); the CSS comment above it explains why and should stay. When the panel is open, `main.js` caps its height to the space below the header so it scrolls on short landscape screens, sets `data-nav-open` on `<html>` to show a page scrim beneath the header, and closes the panel when focus or a click leaves the header.
 
+## Brand assets
+
+The official logo was supplied as a JPEG on an off-white background. It was cut into transparent PNGs so it sits cleanly on the page's white and off-white surfaces (it is not meant for dark backgrounds, where a faint light edge shows):
+
+| File | Contents | Used where |
+| --- | --- | --- |
+| `assets/img/nsha-logo-lockup.png` | Mark, divider, and "NSHA" wordmark with the full name | Header from 640px wide |
+| `assets/img/nsha-logo-mark.png` | The circular mark alone | Header below 640px |
+| `assets/img/nsha-logo-full.png` | Lockup plus the rule and tagline | Footer |
+| `assets/img/favicon.png`, `assets/img/apple-touch-icon.png` | The mark on a transparent square | Browser tab and home-screen icons |
+
+If you have the logo as a vector file (SVG, AI, or PDF), export SVGs with the same names and swap the paths in `index.html`; they will stay crisp at every size. The header sizes the logo by height (`.brand__logo` in the CSS), so a replacement with a different aspect ratio needs no other change.
+
+## Historical images
+
+The "History and precedent" section uses four scans of USDA Farmers' Bulletin No. 1733, *Planning a Subsistence Homestead* (Walter W. Wilcox, 1934, revised 1940), from the National Agricultural Library's *Small Agriculture* exhibit: <https://www.nal.usda.gov/exhibits/ipd/small/exhibits/show/subsistence/item/29>. They are works of the United States government and in the public domain. The page credits the source beneath the plans; keep that credit line if you move the images. `fb1733-introduction.jpg` is saved in the folder but not placed on the page; the quotation in the section is transcribed from it.
+
+The historical figures in that section (Homestead Act acreage and claim counts, the 1920 census, the 1933 Subsistence Homesteads appropriation, Victory Garden estimates) are stated in round terms with the agency source linked under each card. Verify them against the linked source before using them in print or grant material, and do not add precision the source does not give.
+
 ## Image slots
 
 Every place a photograph belongs is a `<figure>` with a unique `id`, a `data-photo-brief` attribute describing the photo to source, an inline SVG placeholder illustration, and a `<figcaption>`. There are thirteen: twelve `photo-slot` figures with visible captions, plus the hero landscape (`figure.hero__art#photo-hero`), listed first below. The hero is a decorative full-bleed background that text and the Start here card sit on, so its caption is visually hidden (read by screen readers only) and its SVG is `aria-hidden`.
@@ -134,7 +155,7 @@ The frame's CSS already styles `img` the same way it styles the SVG (`width: 100
 
 Every value that is not yet known is shown as a visible placeholder rather than an invented figure. Search `index.html` for `TBD`, `[`, `to come`, and `placeholder-note` to find them all.
 
-Calls to action whose destination does not exist yet are real links that carry a visible `(link to come)` marker (`<span class="pending">`) and point at a visible **placeholder note** at the end of their own section (`#library-note`, `#events-note`, `#membership-note`, `#network-note`, `#funding-note`). The seventeen guide links in the Library tracks carry no inline marker, to keep the lists readable, but they jump to `#library-note` and carry a `title`. When a real page exists: change the `href`, delete the `<span class="pending">…</span>` and the `title` attribute, and remove the section's placeholder note once every link in that section is live. The status card beside the Mission intro ("Status: newly formed") should go when the first programs are operating.
+Calls to action whose destination does not exist yet are real links that carry a visible `(link to come)` marker (`<span class="pending">`) and point at a visible **placeholder note** at the end of their own section (`#library-note`, `#events-note`, `#membership-note`, `#network-note`, `#funding-note`). The seventeen guide links in the Library tracks carry no inline marker, to keep the lists readable, but they jump to `#library-note` and carry a `title`. When a real page exists: change the `href`, delete the `<span class="pending">…</span>` and the `title` attribute, and remove the section's placeholder note once every link in that section is live.
 
 - [ ] **Event dates**: four `<span>Date TBD</span>` elements inside the date chips in the Events section. Replace each with a `<time>` element carrying a machine-readable `datetime`, for example `<time datetime="2027-05-15">May 15, 2027</time>`. (A `<time>` without `datetime` must contain a valid date string, which is why the placeholder is a `<span>`.)
 - [ ] **Event locations**: `[City, State] · [Venue]` in three event cards.
